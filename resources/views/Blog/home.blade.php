@@ -13,9 +13,9 @@
 
 
 <!-- Slick Carousel -->
-<link rel="stylesheet" href="{{ asset('Blog/plugins')}}/owl-carousel/owl.carousel.min.css">
+{{-- <link rel="stylesheet" href="{{ asset('Blog/plugins')}}/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="{{ asset('Blog/plugins')}}/owl-carousel/owl.theme.default.min.css">
-<link rel="stylesheet" href="{{ asset('Blog/plugins')}}/magnific-popup/magnific-popup.css">
+<link rel="stylesheet" href="{{ asset('Blog/plugins')}}/magnific-popup/magnific-popup.css"> --}}
 <!-- manin stylesheet -->
 <link rel="stylesheet" href="{{ asset('Blog') }}/css/style.css">
 <!--Favicon-->

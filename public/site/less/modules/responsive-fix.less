@@ -1,0 +1,113 @@
+@media (min-width: 1400px) {
+  // .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  //   max-width: 1380px;
+  // }
+}
+@media (max-width: 1199px) {
+  .fixed-menu {
+    display: block;
+  }
+
+  .main-header {
+    display: none;
+  }
+  .dashboard-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    .box-shadow;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    .content {
+      padding: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      .menu-btn {
+        .btn {
+          color: #333;
+        }
+      }
+      .mob-logo {
+        img {
+          height: 60px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 767px) {
+  .hero-slide {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+
+    .slide-caption {
+      position: absolute;
+      background: rgba(42, 0, 69, 90%);
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero-logo {
+      margin-bottom: 32px;
+      img {
+        height: 100px;
+        margin: 0 auto;
+      }
+    }
+
+    .hero-title {
+      max-width: 100%;
+      font-size: 24px;
+    }
+
+    .title {
+      max-width: 100%;
+      font-size: 24px;
+    }
+  }
+
+  .footer-widget .widget-img img {
+    height: auto;
+    max-height: 150px;
+  }
+
+  .col-sm-6 {
+    width: 50%;
+  }
+
+  .footer-widget .card-body {
+    padding: 16px 0;
+  }
+
+  .global-skills,
+  .evaluation,
+  .rtl-mode .global-skills,
+  .rtl-mode .evaluation {
+    &:after {
+      content: none;
+    }
+
+    .section-vector {
+      display: none;
+    }
+  }
+}
+@media (max-width: 480px) {
+}

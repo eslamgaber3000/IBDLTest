@@ -1,0 +1,470 @@
+.main-header {
+  padding-bottom: 15px;
+}
+.top-header {
+  margin-bottom: 0;
+  width: 100%;
+  background: #fff; //#e5e5e5;
+  padding: 20px 0;
+  .transition;
+  .row {
+    align-items: center;
+  }
+  .user-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    ul.links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        margin: 0 15px;
+        a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: capitalize;
+          i {
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+
+    .dropdown {
+      .btn {
+        text-transform: capitalize;
+      }
+      .dropdown-menu {
+        .dropdown-item {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .main-brand {
+    img {
+      height: 50px;
+    }
+  }
+}
+.main-nav {
+  background: #eeeeee;
+  .box-shadow;
+  padding: 0;
+  flex-wrap: wrap;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    img {
+      height: 50px;
+    }
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: #070707;
+        position: relative;
+        overflow: hidden;
+        font-family: "ITCAvantGardeStd";
+        font-weight: 500;
+        z-index: 1;
+        .transition;
+        i {
+          margin: 0 5px;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          background-color: @purple;
+          transform: scale(0);
+          .transition;
+        }
+        &:hover {
+          background: @purple;
+          color: #fff;
+          &:after {
+            .transition;
+            transform: scale(1);
+          }
+        }
+      }
+
+      &.dropdown-mega {
+        .dropdown-menu {
+          background: @purple;
+          top: 100%;
+          h5 {
+            color: #fff;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin: 0 0 12px;
+          }
+          p {
+            color: #fff;
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.headroom--not-top {
+  background: #fff;
+  .box-shadow;
+  .top-header {
+    display: none;
+    .transition;
+  }
+  .navbar-brand {
+    .default-logo {
+      display: none;
+    }
+
+    .scrolled-logo {
+      display: flex;
+    }
+  }
+  .navbar-default .navbar-nav > .open > a,
+  .navbar-default .navbar-nav > .open > a:focus,
+  .navbar-default .navbar-nav > .open > a:hover {
+    color: #fff !important;
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: #222;
+        &.btn {
+          color: #222;
+        }
+      }
+    }
+  }
+}
+
+.header--fixed {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.headroom {
+  transition: transform 0.25s ease-in-out;
+  will-change: transform;
+}
+
+.headroom--pinned {
+  transform: translateY(0);
+}
+
+.headroom--unpinned {
+  transform: translateY(-100%);
+}
+
+.animated {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated.slideDown {
+  animation-name: slideDown;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animated.slideUp {
+  animation-name: slideUp;
+}
+
+@keyframes swingInX {
+  0% {
+    transform: perspective(400px) rotateX(-90deg);
+  }
+  100% {
+    transform: perspective(400px) rotateX(0);
+  }
+}
+
+.animated.swingInX {
+  -ie-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-name: swingInX;
+  -moz-backface-visibility: visible !important;
+  -moz-animation-name: swingInX;
+  -o-backface-visibility: visible !important;
+  -o-animation-name: swingInX;
+  backface-visibility: visible !important;
+  animation-name: swingInX;
+}
+
+.animated.flipInX,
+.animated.swingOutX {
+  -webkit-backface-visibility: visible !important;
+  -moz-backface-visibility: visible !important;
+  -o-backface-visibility: visible !important;
+}
+
+@keyframes swingOutX {
+  0% {
+    transform: perspective(400px) rotateX(0);
+  }
+  100% {
+    transform: perspective(400px) rotateX(-90deg);
+  }
+}
+
+.animated.swingOutX {
+  -webkit-transform-origin: top;
+  -webkit-animation-name: swingOutX;
+  -moz-animation-name: swingOutX;
+  -o-animation-name: swingOutX;
+  animation-name: swingOutX;
+  backface-visibility: visible !important;
+}
+
+@keyframes flipInX {
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(400px) rotateX(0);
+    opacity: 1;
+  }
+}
+
+.animated.flipInX {
+  -webkit-animation-name: flipInX;
+  -moz-animation-name: flipInX;
+  -o-animation-name: flipInX;
+  backface-visibility: visible !important;
+  animation-name: flipInX;
+}
+
+@keyframes flipOutX {
+  0% {
+    transform: perspective(400px) rotateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+.animated.flipOutX {
+  -webkit-animation-name: flipOutX;
+  -webkit-backface-visibility: visible !important;
+  -moz-animation-name: flipOutX;
+  -moz-backface-visibility: visible !important;
+  -o-animation-name: flipOutX;
+  -o-backface-visibility: visible !important;
+  animation-name: flipOutX;
+  backface-visibility: visible !important;
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+@keyframes bounceOutUp {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+}
+
+@media (min-width: 992px) {
+  .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mob-sidebar {
+  .offcanvas-body {
+    padding-top: 100px;
+    .logo {
+      margin-bottom: 32px;
+      img {
+        height: 70px;
+      }
+    }
+    .links {
+      ul {
+        li {
+          a {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .collapse {
+            .card {
+              .no-border;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.megamenu-li {
+  position: static;
+}
+
+.megamenu {
+  position: absolute;
+  width: 90%;
+  margin: 0 auto;
+  left: 5%;
+  padding: 25px 15px;
+  .no-border;
+  .no-radius;
+  background: @purple;
+
+  .mega-vector {
+    text-align: center;
+  }
+  h6 {
+    color: #fff;
+    font-size: 21px;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+
+  .dropdown-item {
+    .transition;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 0;
+    &:hover {
+      background: transparent;
+      color: @orange;
+      .transition;
+      padding-left: 10px;
+    }
+  }
+}
+.megamenu h6 {
+}
+.megamenu i {
+}
+
+.rtl-mode {
+  .megamenu {
+    h6 {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/Jost-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/Jost-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/Jost-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "ITCAvantGardeStd";
+  src: url("../fonts/ITCAvantGardeStd-Md.otf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "ITCAvantGardeStd";
+  src: url("../fonts/ITCAvantGardeStd-Bold.otf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: myriad-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: myriad-pro, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: myriad-pro, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}

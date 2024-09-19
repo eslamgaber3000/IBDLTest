@@ -1,0 +1,412 @@
+<?php $__env->startSection('css'); ?>
+      <!--Favicon-->
+      <link rel="shortcut icon" href="<?php echo e(asset('Blog')); ?>/images/favicon.ico" type="image/x-icon">
+
+      <!-- THEME CSS
+      ================================================== -->
+      <!-- Bootstrap -->
+      
+      <!-- Themify -->
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/themify/css/themify-icons.css">
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/slick-carousel/slick-theme.css">
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/slick-carousel/slick.css">
+      <!-- Slick Carousel -->
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/owl-carousel/owl.carousel.min.css">
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/owl-carousel/owl.theme.default.min.css">
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/magnific-popup/magnific-popup.css">
+      <!-- manin stylesheet -->
+      <link rel="stylesheet" href="<?php echo e(asset('Blog')); ?>/css/style.css"> 
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('websit_content'); ?>
+
+
+
+<!--search overlay end-->
+
+
+
+<section class="single-block-wrapper section-padding">
+    <div class="container">
+        <div class="row">
+
+
+
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div class="single-post">
+                    <div class="post-header mb-5 text-center">
+                        <div class="meta-cat">
+                            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1"
+                                href="#">Health ,</a>
+                            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1"
+                                href="#">lifestyle</a>
+                        </div>
+                        <h2 class="post-title mt-2">
+                            First Look At Self-Portrait's Autumn Collection
+                        </h2>
+
+                        <div class="post-meta">
+                            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by Liam</span>
+                            <span class="text-uppercase font-sm letter-spacing-1">January 17,2019</span>
+                        </div>
+                        <div class="post-featured-image mt-5">
+                            <img src="<?php echo e(asset("storage/$article->image")); ?>" class="img-fluid w-100" alt="featured-image">
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        <div class="entry-content">
+                            <p> It was a cheerful prospect. I asked Perry what he thought about it; but he only
+                                shrugged his shoulders and continued a longwinded prayer he had been at for some
+                                time. He was wont to say that the only redeeming feature of our captivity was the
+                                ample time it gave him for the improvisation of prayers—it was becoming an obsession
+                                with him.</p>
+                            <h2 class="mt-4 mb-3">Perfect design & code delivered to you</h2>
+                            <p> The Sagoths had begun to take notice of his habit of declaiming throughout entire
+                                marches. One of them asked him what he was saying—to whom he was talking. The
+                                question gave me an idea, so I answered quickly before Perry could say anything.</p>
+                            <blockquote>
+                                <i class="ti-quote-left mr-2"></i>A wise girls knows her limit to touch the
+                                sky.Repellat sapiente neque iusto praesentium adipisci.The question gave me an idea,
+                                so I answered quickly before Perry could say anything.<i
+                                    class="ti-quote-right ml-2"></i>
+                            </blockquote>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <img src="<?php echo e(asset('Blog')); ?>/images/fashion/single-img1.png" alt="post-ads"
+                                        class="img-fluid mr-4 w-100">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <img src="<?php echo e(asset('Blog')); ?>/images/fashion/single-img2.png" alt="post-ads"
+                                        class="img-fluid mr-4 w-100">
+                                </div>
+                            </div>
+                            <h3 class="mt-5 mb-3">Enjoying the view of summer</h3>
+
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum delectus
+                                exercitationem
+                                natus quidem enim error suscipit. Iure cupiditate nobis quaerat consectetur! Vero
+                                aliquam,
+                                amet ipsum ullam reiciendis nostrum voluptate accusantium provident ut blanditiis
+                                incidunt. </p>
+
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab ratione animi
+                                nobis in et consequatur
+                                earum modi repellendus, qui, non debitis pariatur tempora consequuntur!</p>
+                        </div>
+
+                        <div class="post-tags py-4">
+                            <a href="#">#Health</a>
+                            <a href="#">#Game</a>
+                            <a href="#">#Tour</a>
+                        </div>
+
+
+                        <div
+                            class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
+
+                            <span class="single-comment-o"><i class="fa fa-comment-o"></i>0 comment</span>
+
+                            <div class="post-share">
+                                <span class="count-number-like">2</span>
+                                <a class="penci-post-like single-like-button"><i class="ti-heart"></i></a>
+                            </div>
+
+                            <div class="list-posts-share">
+                                <a target="_blank" rel="nofollow" href="#"><i class="ti-facebook"></i></a>
+                                <a target="_blank" rel="nofollow" href="#"><i class="ti-twitter"></i></a>
+                                <a target="_blank" rel="nofollow" href="#"><i class="ti-pinterest"></i></a>
+                                <a target="_blank" rel="nofollow" href="#"><i class="ti-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-author d-flex my-5">
+                    <div class="author-img">
+                        <img alt="" src="<?php echo e(asset("Blog")); ?>/images/author.jpg" class="avatar avatar-100 photo" width="100"
+                            height="100">
+                    </div>
+
+                    <div class="author-content pl-4">
+                        <h4 class="mb-3"><a href="#" title="" rel="author" class="text-capitalize">Themefisher</a>
+                        </h4>
+                        <p>Hey there. My name is Liam. I was born with the love for traveling. I also love taking
+                            photos with my phone in order to capture moment..</p>
+
+                        <a target="_blank" class="author-social" href="#"><i class="ti-facebook"></i></a>
+                        <a target="_blank" class="author-social" href="#"><i class="ti-twitter"></i></a>
+                        <a target="_blank" class="author-social" href="#"><i class="ti-google-plus"></i></a>
+                        <a target="_blank" class="author-social" href="#"><i class="ti-instagram"></i></a>
+                        <a target="_blank" class="author-social" href="#"><i class="ti-pinterest"></i></a>
+                        <a target="_blank" class="author-social" href="#"><i class="ti-tumblr"></i></a>
+                    </div>
+                </div>
+                <nav class="post-pagination clearfix border-top border-bottom py-4">
+                    <div class="prev-post">
+                        <a href="blog-single.html">
+                            <span class="text-uppercase font-sm letter-spacing">Next</span>
+                            <h4 class="mt-3"> Intel’s new smart glasses actually look good</h4>
+                        </a>
+                    </div>
+                    <div class="next-post">
+                        <a href="blog-single.html">
+                            <span class="text-uppercase font-sm letter-spacing">Previous</span>
+                            <h4 class="mt-3">Free Two-Hour Delivery From Whole Foods</h4>
+                        </a>
+                    </div>
+                </nav>
+                <div class="related-posts-block mt-5">
+                    <h3 class="news-title mb-4 text-center">
+                        You May Also Like
+                    </h3>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="post-block-wrapper mb-4 mb-lg-0">
+                                <a href="blog-single.html">
+                                    <img class="img-fluid" src="<?php echo e(asset("Blog/images/fashion/img-1.jpg")); ?>" alt="post-thumbnail" />
+                                </a>
+                                <div class="post-content mt-3">
+                                    <h5>
+                                        <a href="blog-single.html">Intel’s new smart glasses actually look good</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="post-block-wrapper mb-4 mb-lg-0">
+                                <a href="blog-single.html">
+                                    <img class="img-fluid" src="<?php echo e(asset('Blog')); ?>/images/fashion/img-2.jpg" alt="post-thumbnail" />
+                                </a>
+                                <div class="post-content mt-3">
+                                    <h5>
+                                        <a href="blog-single.html">Free Two-Hour Delivery From Whole Foods</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="post-block-wrapper">
+                                <a href="blog-single.html">
+                                    <img class="img-fluid" src="<?php echo e(asset('Blog')); ?>/images/fashion/img-3.jpg" alt="post-thumbnail" />
+                                </a>
+                                <div class="post-content mt-3">
+                                    <h5>
+                                        <a href="blog-single.html">Snow and Freezing Rain in Paris Forces the</a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-area my-5">
+                    <h3 class="mb-4 text-center"><?php echo e($article->comments->count()); ?> comments </h3>
+
+                    <?php if( $article->comments): ?>
+                    <?php $__currentLoopData = $article->comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        
+                    
+                    <div class="comment-area-box media">
+                        <img alt="" src="<?php echo e(asset('css/storage/avatars/'. $article->user->avatar)); ?>" class="img-fluid float-left mr-3 mt-2">
+
+                        <div class="media-body ml-4">
+                            <h4 class="mb-0"><?php echo e($article->user->name); ?> </h4>
+                            <span class="date-comm font-sm text-capitalize text-color"><i
+                                    class="ti-time mr-2"></i><?php echo e($comment->created_at->format('Y-m-d')); ?> </span>
+
+                            <div class="comment-content mt-3">
+                                <p><?php echo e($comment->comment); ?></p>
+                            </div>
+                            
+                        </div>
+                    </div> 
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                    <?php endif; ?>
+
+                    
+
+                    
+                </div>
+
+                <?php if(auth()->guard()->check()): ?>
+                <form class="comment-form mb-5 gray-bg p-5"me id="comment-form" method="POST"  action="<?php echo e(url('comment/store')); ?>">
+
+                    <?php echo csrf_field(); ?>
+                    <h3 class="mb-4 text-center">Leave a comment</h3>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="hidden" name="article_id" value="<?php echo e($article->id); ?>">
+                            <textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="5"
+                                placeholder="Comment"></textarea>
+                        </div>
+                        
+                        
+                    </div>
+
+                    <input class="btn btn-primary" type="button" name="submit-contact" id="submit_contact"
+                        value="Submit Message">
+                </form>
+                <?php endif; ?>
+
+            </div>
+
+
+
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 bt-5 mt-5 ">
+                <div class="sidebar sidebar-right">
+                    <div class="sidebar-wrap mt-5 mt-lg-0">
+                        <div class="sidebar-widget about mb-5 text-center p-3">
+                            <div class="about-author">
+                            <img src="<?php echo e(asset('Blog')); ?>/images/author.jpg" alt="" class="img-fluid">
+                            </div>
+                            <h4 class="mb-0 mt-4">Liam Mason</h4>
+                            <p>Travel Blogger</p>
+                            <p>I'm Liam, last year I decided to quit my job and travel the world. You can follow my
+                                journey on this blog!</p>
+                                <img src="<?php echo e(asset('Blog')); ?>/images/liammason.png" alt="" class="img-fluid">
+                        </div>
+
+                        <div class="sidebar-widget follow mb-5 text-center">
+                            <h4 class="text-center widget-title">Follow Me</h4>
+                            <div class="follow-socials">
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                <a href="#"><i class="ti-twitter"></i></a>
+                                <a href="#"><i class="ti-instagram"></i></a>
+                                <a href="#"><i class="ti-youtube"></i></a>
+                                <a href="#"><i class="ti-pinterest"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget mb-5 ">
+                            <h4 class="text-center widget-title">Trending Posts</h4>
+
+                            <div class="sidebar-post-item-big">
+                                <a href="blog-single.html"><img src="<?php echo e(asset('Blog')); ?>/images/news/img-1.jpg" alt=""
+                                    class="img-fluid"></a>
+                                <div class="mt-3 media-body">
+                                    <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
+                                        2019</span>
+                                    <h4><a href="blog-single.html">Meeting With Clarissa, Founder Of Purple
+                                            Conversation App</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="media border-bottom py-3 sidebar-post-item">
+                                <a href="#"><img class="mr-4" src="<?php echo e(asset('Blog')); ?>/images/news/thumb-1.jpg" alt=""></a>
+                                <div class="media-body">
+                                    <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
+                                        2019</span>
+                                    <h4><a href="blog-single.html">Thoughtful living in los Angeles</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="media py-3 sidebar-post-item">
+                                <a href="#"><img class="mr-4" src="<?php echo e(asset('Blog')); ?>/images/news/thumb-2.jpg" alt=""></a>
+                                <div class="media-body">
+                                    <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
+                                        2019</span>
+                                    <h4><a href="blog-single.html">Vivamus molestie gravida turpis.</a></h4>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="sidebar-widget category mb-5">
+                            <h4 class="text-center widget-title">Catgeories</h4>
+                            <ul class="list-unstyled">
+                                <li class="align-items-center d-flex justify-content-between">
+                                    <a href="#">Innovation</a>
+                                    <span>14</span>
+                                </li>
+                                <li class="align-items-center d-flex justify-content-between">
+                                    <a href="#">Software</a>
+                                    <span>2</span>
+                                </li>
+                                <li class="align-items-center d-flex justify-content-between">
+                                    <a href="#">Social</a>
+                                    <span>10</span>
+                                </li>
+                                <li class="align-items-center d-flex justify-content-between">
+                                    <a href="#">Trends</a>
+                                    <span>5</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget subscribe mb-5">
+                            <h4 class="text-center widget-title">Newsletter</h4>
+                            <input type="text" class="form-control" placeholder="Email Address">
+                            <a href="#" class="btn btn-primary d-block mt-3">Sign Up</a>
+                        </div>
+
+                        <div class="sidebar-widget sidebar-adv mb-5">
+                            <a href="#"><img src="images/sidebar-banner3.png" alt="" class="img-fluid w-100"></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+    <!-- THEME JAVASCRIPT FILES
+================================================== -->
+    <!-- initialize jQuery Library -->
+    <script src="plugins/jquery/jquery.js"></script>
+    <!-- Bootstrap jQuery -->
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/js/popper.min.js"></script>
+    <!-- Owl caeousel -->
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="plugins/slick-carousel/slick.min.js"></script>
+    <script src="plugins/magnific-popup/magnific-popup.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="plugins/instafeed-js/instafeed.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+    <!-- main js -->
+    <script src="js/custom.js"></script>
+
+
+    <script>
+
+$("#submit_contact").click(function(){
+
+    let article_id = $("input[name='article_id']").val();
+    let comment = $("#comment").val();
+
+
+    $.ajax({
+        url: 'http://127.0.0.1:8000/comment/store',
+        type: 'POST',
+        data: {
+        "_token": "<?php echo e(csrf_token()); ?>",     
+            article_id: article_id, comment: comment
+         },
+        success: function(response) {
+            console.log(response);
+            $("#comment").val("");
+            // console.log(response);
+            
+            window.alert("your comment has been published");
+            window.location.reload();
+        },
+        error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+        }
+    });
+ // alert(article_id);
+//   alert([article_id, comment]);
+});
+        
+
+
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layoutBlog', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/u101566037/domains/ibdl.net/public_html/blog/resources/views/Blog/show.blade.php ENDPATH**/ ?>

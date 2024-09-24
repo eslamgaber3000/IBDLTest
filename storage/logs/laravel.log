@@ -7366,4 +7366,3 @@
 #47 D:\\IBDLTest\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 D:\\IBDLTest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\IBDLTest\\\\pub...')
 #49 {main}
-"} 

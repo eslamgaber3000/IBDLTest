@@ -435,6 +435,9 @@
                         <li>
                             <a href="">home</a>
                         </li>
+                        <li>
+                            <a href="{{ url('Article/index') }}">IBDL Blog</a>
+                        </li>
                           <li>
                                         <a style="color: white;
                                         background-color: #1c1b39;" class="btn" type="button" class=" shop

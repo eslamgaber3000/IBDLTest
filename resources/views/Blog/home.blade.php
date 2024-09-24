@@ -13,9 +13,9 @@
 
 
 <!-- Slick Carousel -->
-{{-- <link rel="stylesheet" href="{{ asset('Blog/plugins')}}/owl-carousel/owl.carousel.min.css">
+<link rel="stylesheet" href="{{ asset('Blog/plugins')}}/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="{{ asset('Blog/plugins')}}/owl-carousel/owl.theme.default.min.css">
-<link rel="stylesheet" href="{{ asset('Blog/plugins')}}/magnific-popup/magnific-popup.css"> --}}
+<link rel="stylesheet" href="{{ asset('Blog/plugins')}}/magnific-popup/magnific-popup.css">
 <!-- manin stylesheet -->
 <link rel="stylesheet" href="{{ asset('Blog') }}/css/style.css">
 <!--Favicon-->
@@ -30,7 +30,57 @@
 
 	@section('websit_content')
 
-	<section class="slider mt-4">
+
+	<section class="main-hero d-flex" style="background-color: white;">
+		<div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"
+			class="slide-caption col-10 col-lg-5 ms-5 text-start">
+			<div class="hero-logo">
+				{{-- <img src="{{ asset('site/images/white-logo.png') }}" class="img-fluid" alt="" /> --}}
+			</div>
+	
+			<h1 class="hero-title m-0" style="font-size: 45px;color:white">
+				
+			</h1>
+	
+			@php
+			echo $homepage->inspire
+			@endphp
+	
+			<div class="d-flex mt-4 justify-content-between align-items-center">
+				<div class="review">
+					<h5 class="fw-bold" style="color:white"> Trust Score </h5>
+					<div class="ratings mb-2">
+						<div class="empty-stars"></div>
+						<div class="full-stars" style="width:{{$star_rating}}%"></div>
+					</div>
+					<b style="font-size: 1.5em;color:white" class="fw-bold mx-2">{{$all_rate}} </b>
+					<div class="mt-1 fw-bold">
+						<a style="text-decoration: underline;color:white" href="{{url('pages/user_review')}}"> Read Our Dear
+							Users Reviews </a>
+					</div>
+				</div>
+				<div class="button ms-auto">
+	
+					@auth
+	
+					@else
+					<a href="{{ route('register') }}"> <button class="btn btn-warning button fw-bold"> Sign Up</button> </a>
+					@endauth
+				</div>
+			</div>
+		</div>
+		{{-- <div class="col-6 main-hero-img"> --}}
+	
+	
+			<img class="image1" src="{{ asset('storage/head.png') }}" />
+			<img data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="image2 d-none d-lg-block"
+				src="{{ asset('images/header/Header-version-564.png') }}" />
+			{{-- <img class="image3" src="{{ asset('images/header/bar.svg') }}" /> --}}
+			{{--
+		</div> --}}
+	</section>
+
+	{{-- <section class="slider mt-4">
 		<div class="container-fluid">
 			<div class="row no-gutters">
 				<div class="col-lg-12 col-sm-12 col-md-12 slider-wrap">
@@ -121,7 +171,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
 
 	<section class="section-padding">
@@ -141,7 +191,7 @@
 								<h3 class="post-title mt-1"><a href="blog-single.html">{{ $article->title }}</a></h3>
 								
 
-								<span class="text-muted letter-spacing text-uppercase font-sm">{{ $article->created_at }}</span>
+								<span class="text-muted letter-spacing text-uppercase font-sm"> posted at {{  $article->created_at->format('y-m-d') }}</span>
 
 							</article>
 						</div>
@@ -152,17 +202,22 @@
 
 					</div>
 				</div>
-
 				<div class="m-auto">
-					<div class="pagination mt-5 pt-4">
-						<ul class="list-inline ">
+					<div class=" mt-5 pt-4">
+						{{-- <ul class="list-inline ">
 							<li class="list-inline-item"><a href="#" class="active">1</a></li>
 							<li class="list-inline-item"><a href="#">2</a></li>
 							<li class="list-inline-item"><a href="#">3</a></li>
 							<li class="list-inline-item"><a href="#" class="prev-posts"><i
 										class="ti-arrow-right"></i></a></li>
-						</ul>
+						</ul> --}}
+						{{ $articles->links() }}
+
+
+						
 					</div>
+
+				
 				</div>
 			</div>
 		</div>

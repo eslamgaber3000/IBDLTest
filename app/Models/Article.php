@@ -14,7 +14,7 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title','desc','image','user_id'
+        'title','desc','image','user_id','article_image','auther_id','subtitle','desc2'
     ];
 
 
@@ -23,5 +23,8 @@ class Article extends Model
     }
     public function comments(){
         return $this->hasMany(Comment::class,'article_id');
+    }
+    public function auther(){
+        return $this->belongsTo(Auther::class,'auther_id');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Homepage;
+use App\Models\review;
 use BotMan\BotMan\Storages\Storage;
 use Illuminate\Http\Request;
 
@@ -10,10 +12,20 @@ class ArticleController extends Controller
 {
     public function index()
     {
-      $articles=Article::all(); 
-      
+      $articles=Article::paginate(4); 
+      $homepage = Homepage::first();
+      $reviews = review::where('approved',1)->get();
+      // dd($reviews);
+      $rates = 0;
+      foreach($reviews as $review){
+      $rates += $review->rate ;
+      }
+      $all_rate = ($rates / count($reviews)) ;
+      $all_rate = round($all_rate,1);
+      $star_rating = ($all_rate / 5) * 100;
+      $reviews_count = count($reviews);
 
-        return view('Blog.home', compact('articles'));
+        return view('Blog.home', compact('articles','homepage','all_rate','star_rating','reviews_count'));
     }
 
 
@@ -25,8 +37,16 @@ class ArticleController extends Controller
         $comments = $article->comments;
         $commentsNumber = $article->comments->count();
        
-      
+
+    
         return view('Blog.show', compact('article','comments','user','commentsNumber'));
+    }
+
+
+
+    public function test (){
+        return view('Blog.test');
+
     }
     // public function image()
     // {

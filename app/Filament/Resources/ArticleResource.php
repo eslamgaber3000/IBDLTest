@@ -25,15 +25,31 @@ class ArticleResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('user_id')
                     ->required(),
+
+                Forms\Components\TextInput::make('auther_id')
+                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('subtitle')
+                    ->required()
+                    ->maxLength(255),
+
                 Forms\Components\Textarea::make('desc')
                     ->required()
                     ->maxLength(65535),
+
+                Forms\Components\Textarea::make('desc2')
+                    ->required()
+                    ->maxLength(65535),
+
                     Forms\Components\FileUpload::make('image')
                     ->required()
-                    ->image()->directory('articles')->columnSpan('full'),
+                    ->image()->directory('BlogImages')->columnSpan('full'),
+
+                    Forms\Components\FileUpload::make('article_image')
+                    ->required()
+                    ->image()->directory('article_images')->columnSpan('full'),
 
 
                     // Forms\Components\FileUpload::make('image')
@@ -51,9 +67,13 @@ class ArticleResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user_id'),
+                Tables\Columns\TextColumn::make('auther_id'),
                 Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('subtitle'),
                 Tables\Columns\TextColumn::make('desc'),
+                Tables\Columns\TextColumn::make('desc2'),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('article_image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')

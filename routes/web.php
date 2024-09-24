@@ -168,7 +168,7 @@ Route::get('auth/{provider}/callback',[SocialLoginController::class,'callback'])
 //Ibdl blog
 Route::name('Article')->group(function(){
 Route::get('Article/index',[ArticleController::class,'index']);
-Route::get('Articles/show/{id}',[ArticleController::class,'show']);
+Route::get('Articles/show/{id}',[ArticleController::class,'show']);     
 
 
     // Route::get('try_image',[ArticleController::class,'image']);
@@ -178,4 +178,7 @@ Route::get('Articles/show/{id}',[ArticleController::class,'show']);
 });
 Route::post('comment/store',[CommentController::class,'store'])->middleware('auth');
 // Route::get('comment/index',[CommentController::class,"index"]);
+Route::get('articleTest',[ArticleController::class, 'test']);
+
+
 

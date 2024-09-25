@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Like;
 use Filament\Models\Concerns\IsFilamentUser;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -93,5 +94,9 @@ class User extends Authenticatable implements FilamentUser
 
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+    public function likes()
+    {
+    return $this->hasMany(Like::class);
     }
 }

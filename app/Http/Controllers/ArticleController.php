@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Homepage;
+use App\Models\Like;
 use App\Models\review;
 use BotMan\BotMan\Storages\Storage;
 use Illuminate\Http\Request;
@@ -48,6 +49,49 @@ class ArticleController extends Controller
         return view('Blog.test');
 
     }
+
+    public function storeLike (Request $request){
+     $article_id=$request->input('article_id');
+     $user_id=$request->input('user_id');
+
+
+    
+     $data=$request->validate([
+        ['article_id'=>'required|exists:articles,id',
+        'user_id'=>'required|exists: users,id']
+     ]);
+
+
+     Like::create([
+        'article_id' => $article_id,
+        'user_id' => $user_id,
+     ]);
+
+
+     return redirect()->back()->with('success','You have liked this article');
+    }
+
+
+    public function toggleLike(Article $article)
+{
+    $user = auth()->user();
+
+    if ($article->likes()->where('user_id', $user->id)->exists()) {
+        // If the post is already liked by the user, unlike it
+        $article->likes()->where('user_id', $user->id)->delete();
+        // return response()->json(['status' => 'unliked']);
+        // dd("the article has been liked");
+        return redirect()->back()->with('success ','you have liked this article');
+    } else {
+        // Otherwise, like the post
+        $article->likes()->create(['user_id' => $user->id]);
+        // return response()->json(['status' => 'liked']);
+        dd("liked the article successfully"); 
+    }
+}
+
+
+
     // public function image()
     // {
 

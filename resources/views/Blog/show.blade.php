@@ -122,10 +122,16 @@
                                         <!-- Left Section (Reactions) -->
                                         <div class="left-section d-flex align-items-center">
                                             <!-- Clap Icon and Count -->
-                                            <span class="reaction-icon me-2">
-                                                <i class="fas fa-hands-clapping"></i>
-                                            </span>
-                                            <span class="reaction-count me-4">12.1K</span>
+                                           
+                                            <form action="{{url( 'Article/like/create') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="article_id" value="{{ $article->id }}">
+                                                <input type="hidden" name="user_id" value="{{ $article->user->id }}">
+                                                <span class="reaction-icon me-2">
+                                                    <button type="submit"> <i class="fas fa-hands-clapping"></i> </button> 
+                                                </span>
+                                                <span class="reaction-count me-4 like-button">{{ $article->likes->count() }}</span>
+                                            </form>
 
                                             <!-- Comment Icon and Count -->
                                             <span class="comment-icon me-2">
@@ -357,11 +363,33 @@
             console.log(xhr.responseText);
         }
     });
- // alert(article_id);
-//   alert([article_id, comment]);
+
 });
         
+$('.like-button').on('click', function() {
 
+
+
+    var articleId = $(this).data('post-id');
+        console.log(articleId);
+
+
+
+    // $.ajax({
+    //     url: '/post/' + articleId + '/like',
+    //     method: 'POST',
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     },
+    //     success: function(response) {
+    //         if (response.status === 'liked') {
+    //             alert('Post liked!');
+    //         } else {
+    //             alert('Post unliked!');
+    //         }
+    //     }
+    // });
+});
 
 </script>
 @endsection

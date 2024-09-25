@@ -84,7 +84,32 @@
 
                                             <!-- Follow Button -->
                                             <div class="Ather_follow ms-3">
-                                                <a href="https://www.linkedin.com/in/khaledkhallaf/" class="btn btn-outline-success">Follow</a>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                
+                                                            <a href="">
+                                                                <i class="fa-brands fa-facebook"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                
+                                                            <a href=""> <i class="fa-brands fa-linkedin-in"></i></a>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                
+                                                            <a href="">
+                                                                <i class="fab fa-instagram"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                
+                                                            <a href=""> <i class="fa-solid fa-x"></i></a>
+                                                        </div>
+                                                
+                                                    </div>
+                                                </div>
+                                                <span  class="">Follow</span>
                                             </div>
                                         </div>
                                     </div>

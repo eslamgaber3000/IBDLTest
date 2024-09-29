@@ -212,6 +212,20 @@
 
                                         </a>
                                     </li>
+                                    @auth
+                                    @if (auth()->check() && auth()->user()->role == '1')
+                                        
+                                    <li>
+                                         <a style="color: white;
+                                         background-color: #1c1b39;" class="btn" type="button" class=" shop
+                                             text-decoration-none shop" href="{{url('/admin')}}">
+                                             <strong class="shop_icon"><i class="fa-solid fa-user-tie"></i>
+                                                 admin</strong>
+ 
+                                         </a>
+                                     </li>
+                                    @endif
+                                    @endauth
                                        @endif
                                     @if(Route::has('login'))
                                     <!--@auth-->
@@ -223,6 +237,8 @@
                                     <li>
                                         <!--@endauth-->
                                         <!--@endif-->
+
+                                        
                                         @if(Route::has('login'))
                                         @auth
                                         <a class="d-flex flex-column" href="{{ route('dashboard') }}">

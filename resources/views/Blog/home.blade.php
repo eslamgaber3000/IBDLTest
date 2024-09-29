@@ -187,7 +187,7 @@
 									<img src="{{ asset("storage/$article->image")}}" alt="" class="img-fluid w-100">
 								</a>
 								<span
-									class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">Explore</span>
+									class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1"> {{ $article->auther->name }}</span>
 								<h3 class="post-title mt-1"><a href="blog-single.html">{{ $article->title }}</a></h3>
 								
 

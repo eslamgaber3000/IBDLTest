@@ -180,12 +180,12 @@ Route::post('comment/store',[CommentController::class,'store'])->middleware('aut
 // Route::get('comment/index',[CommentController::class,"index"]);
 Route::get('articleTest',[ArticleController::class, 'test']);
 
-Route::post('Article/like/create',[ArticleController::class, 'storeLike']);
+// Route::post('Article/like/create',[ArticleController::class, 'storeLike']);
 
 
 //test like function
 // Route::get('/article/{article}/like', [ArticleController::class, 'toggleLike'])->middleware('auth');
-
+Route::post('Article/like/create',[ArticleController::class, 'storeLike']);
 
 
 

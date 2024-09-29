@@ -51,6 +51,12 @@
                         <div class="container my-3">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
+                                    @if (session()->has('error'))
+                                        
+                                    <div class="alert alert-danger">
+                                        <strong>Warning!</strong> This article has been removed from the system.
+                                    </div>
+                                    @endif
                                     <!-- Content Block: Title, Subtitle, Author Section -->
                                     <div class="content-block text-center p-4">
                                         <!-- Article Title -->
@@ -125,35 +131,35 @@
                                            
                                             <form action="{{url( 'Article/like/create') }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="article_id" value="{{ $article->id }}">
-                                                <input type="hidden" name="user_id" value="{{ $article->user->id }}">
+                                                <input type="hidden" name="article_id" id="article_id" value="{{ $article->id }}">
+                                                <input type="hidden" name="user_id" id="user_id" value="{{ $article->user->id }}">
                                                 <span class="reaction-icon me-2">
-                                                    <button type="submit"> <i class="fas fa-hands-clapping"></i> </button> 
+                                                    <button type="button" id="like-button" style="border: none ; background:none ; padding:none ;"> <i class="fas fa-hands-clapping h-2 text-success" ></i> </button> 
                                                 </span>
-                                                <span class="reaction-count me-4 like-button">{{ $article->likes->count() }}</span>
+                                                <span class="reaction-count me-4 " id="like_count">{{ $article->likes->count() }}</span>
                                             </form>
 
                                             <!-- Comment Icon and Count -->
                                             <span class="comment-icon me-2">
                                                 <i class="fas fa-comment-dots"></i>
                                             </span>
-                                            <span class="comment-count">354</span>
+                                            <span class="comment-count">{{  $article->comments->count() }}</span>
                                         </div>
 
                                         <!-- Right Section (Actions) -->
                                         <div class="right-section d-flex align-items-center">
                                             <!-- Bookmark Button -->
-                                            <a href="">
+                                            {{-- <a href="">
 
                                                 <span class="me-3">
                                                     <i class="fas fa-bookmark"></i>
                                                 </span>
-                                            </a>
-                                            <a href="">
+                                            </a> --}}
+                                            {{-- <a href="">
                                                 <span class="me-3">
                                                     <i class="fas fa-play-circle"></i>
                                                 </span>
-                                            </a>
+                                            </a> --}}
 
                                             <a href="">
                                                 <span class="me-3">
@@ -257,7 +263,7 @@
                 </div>
 
                 <div class="comment-area my-5">
-                    <h3 class="mb-4 text-center">{{ $article->comments->count() }} comments </h3>
+                    {{-- <h3 class="mb-4 text-center">{{ $article->comments->count() }} comments </h3> --}}
 
                     @if ( $article->comments)
                     @foreach ( $article->comments as $comment )
@@ -366,12 +372,34 @@
 
 });
         
-$('.like-button').on('click', function() {
+$('#like-button').on('click', function() {
 
+    let user_id=$('#user_id').val();
+    let article_id=$('#article_id').val();
+   
 
+    $.ajax({
+        url: 'http://127.0.0.1:8000/Article/like/create',
+        type: 'POST',
+        data: {
+        "_token": "{{ csrf_token() }}",     
+            article_id: article_id,user_id:user_id
+         },
+        success: function(response) {
+           
+            $("#like_count").text("{{ $article->likes->count() +1 }}");
+            $("#like-button").css( "cursor", "not-allowed" );
+            
 
-    var articleId = $(this).data('post-id');
-        console.log(articleId);
+        //    window.alert(response);
+            
+          
+           
+        },
+        error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+        }
+    });
 
 
 

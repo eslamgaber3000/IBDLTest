@@ -13,7 +13,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-      $articles=Article::paginate(4); 
+      $articles=Article::paginate(8); 
       $homepage = Homepage::first();
       $reviews = review::where('approved',1)->get();
       // dd($reviews);
@@ -62,10 +62,22 @@ class ArticleController extends Controller
      ]);
 
 
-     Like::create([
-        'article_id' => $article_id,
-        'user_id' => $user_id,
-     ]);
+     $article=Article::findOrFail($article_id);
+     if ($article->likes()->where('user_id', $user_id)->exists()) {
+
+        // return response()->json(['error'=>'you have already liked this article'],409);
+        return redirect()->back();
+     }else{
+
+
+         Like::create([
+            'article_id' => $article_id,
+            'user_id' => $user_id,
+         ]);
+     }
+
+
+    //  return response()->json(['success'=>'done successfully'],200);
 
 
      return redirect()->back()->with('success','You have liked this article');

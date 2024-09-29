@@ -351,7 +351,7 @@
 
 
     $.ajax({
-        url: 'http://127.0.0.1:8000/comment/store',
+        url: '/comment/store',
         type: 'POST',
         data: {
         "_token": "{{ csrf_token() }}",     
@@ -379,7 +379,7 @@ $('#like-button').on('click', function() {
    
 
     $.ajax({
-        url: 'http://127.0.0.1:8000/Article/like/create',
+        url: '/Article/like/create',
         type: 'POST',
         data: {
         "_token": "{{ csrf_token() }}",     

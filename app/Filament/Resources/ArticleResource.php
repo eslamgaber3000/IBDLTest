@@ -5,11 +5,15 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ArticleResource\Pages;
 use App\Filament\Resources\ArticleResource\RelationManagers;
 use App\Models\Article;
+use App\Models\Auther;
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -21,36 +25,40 @@ class ArticleResource extends Resource
 
     public static function form(Form $form): Form
     {
+
+ 
+
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')
-                    ->required(),
+                    Select::make('auther_id')
+                    ->label('Author')
+                    ->options(Auther::all()->pluck('name', 'id'))
+                    ->searchable()->required()->columnSpanFull(),
 
-                Forms\Components\TextInput::make('auther_id')
-                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)->columnSpanFull(),
                 Forms\Components\TextInput::make('subtitle')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)->columnSpanFull(),
 
-                Forms\Components\Textarea::make('desc')
-                    ->required()
-                    ->maxLength(65535),
+                
 
-                Forms\Components\Textarea::make('desc2')
-                    ->required()
-                    ->maxLength(65535),
+                // Forms\Components\Textarea::make('desc2')
+                //     ->required()
+                //     ->maxLength(65535),
 
-                    Forms\Components\FileUpload::make('image')
+                    Forms\Components\FileUpload::make('image')->label("Image for post")
                     ->required()
                     ->image()->directory('BlogImages')->columnSpan('full'),
 
                     Forms\Components\FileUpload::make('article_image')
                     ->required()
                     ->image()->directory('article_images')->columnSpan('full'),
-
+                    
+                    FORMS\Components\RichEditor::make('desc')
+                    ->required()
+                    ->maxLength(65535)->columnSpanFull()->label('Article body'),
 
                     // Forms\Components\FileUpload::make('image')
                     // ->required()

@@ -185,7 +185,7 @@ Route::get('articleTest',[ArticleController::class, 'test']);
 
 //test like function
 // Route::get('/article/{article}/like', [ArticleController::class, 'toggleLike'])->middleware('auth');
-Route::post('Article/like/create',[ArticleController::class, 'storeLike']);
+Route::post('Article/like/create',[ArticleController::class, 'storeLike'])->middleware('auth');
 
 
 

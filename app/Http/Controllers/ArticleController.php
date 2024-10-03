@@ -8,6 +8,7 @@ use App\Models\Like;
 use App\Models\review;
 use BotMan\BotMan\Storages\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -52,7 +53,9 @@ class ArticleController extends Controller
 
     public function storeLike (Request $request){
      $article_id=$request->input('article_id');
-     $user_id=$request->input('user_id');
+
+     $user_id=auth()->user()->id; 
+    //  dd($user_id);
 
 
     

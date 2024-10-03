@@ -15,13 +15,13 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title','desc','image','user_id','article_image','auther_id','subtitle','desc2'
+        'title','desc','image','article_image','auther_id','subtitle'
     ];
 
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
-    }
+    // public function user(){
+    //     return $this->belongsTo(User::class,'user_id');
+    // }
     public function comments(){
         return $this->hasMany(Comment::class,'article_id');
     }

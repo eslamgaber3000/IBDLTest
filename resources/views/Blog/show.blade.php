@@ -21,7 +21,7 @@
 <!-- manin stylesheet -->
 <link rel="stylesheet" href="{{ asset('Blog/css/Article.test.css') }}">
 <link rel="stylesheet" href="{{ asset('Blog') }}/css/style.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 
@@ -132,9 +132,9 @@
                                             <form action="{{url( 'Article/like/create') }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="article_id" id="article_id" value="{{ $article->id }}">
-                                                <input type="hidden" name="user_id" id="user_id" value="{{ $article->user->id }}">
+                                                {{-- <input type="hidden" name="user_id" id="user_id" value="{{ $article->user->id }}"> --}}
                                                 <span class="reaction-icon me-2">
-                                                    <button type="button" id="like-button" style="border: none ; background:none ; padding:none ;"> <i class="fas fa-hands-clapping h-2 text-success" ></i> </button> 
+                                                    <button type="button" id="like-button" style="border: none ; background:none ; padding:none ;"> <i class="fa-solid fa-thumbs-up "></i> </button> 
                                                 </span>
                                                 <span class="reaction-count me-4 " id="like_count">{{ $article->likes->count() }}</span>
                                             </form>
@@ -163,7 +163,7 @@
 
                                             <a href="">
                                                 <span class="me-3">
-                                                    <i class="fas fa-share"></i>
+                                                    <i class="fa-solid fa-share-nodes"></i>
                                                 </span>
                                             </a>
 
@@ -187,13 +187,14 @@
 
                     <div class="post-body">
                         <div class="entry-content">
-                            <p> {{  $article->desc}}</p>
+                          @php
+                              echo $article->desc
+                          @endphp
                             
-                            <p> {{ $article->desc2 }}.</p>
-                         
+                            
 
                            
-                            <h3 class="mt-5 mb-3">The Power of Thought</h3>
+                            {{-- <h3 class="mt-5 mb-3">The Power of Thought</h3>
 
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum delectus
                                 exercitationem
@@ -205,7 +206,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab ratione animi
                                 nobis in et consequatur
                                 earum modi repellendus, qui, non debitis pariatur tempora consequuntur!</p>
-                        </div>
+                        </div> --}}
 
                     
 
@@ -270,11 +271,11 @@
 
 
                     <div class="comment-area-box media">
-                        <img alt="" src="{{ asset('storage/avatars/'.$article->user->avatar) }}"
+                        <img alt="" src="{{ asset('storage/avatars/'.$comment->user->avatar) }}"
                             class="img-fluid float-left mr-3 mt-2">
 
                         <div class="media-body ml-4">
-                            <h4 class="mb-0">{{ $article->user->name }} </h4>
+                            <h4 class="mb-0">{{ $comment->user->name }} </h4>
                             <span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>{{
                                 $comment->created_at->format('Y-m-d') }} </span>
 
@@ -323,6 +324,7 @@
 @endsection
 
 @section('scripts')
+
 <!-- THEME JAVASCRIPT FILES
 ================================================== -->
 <!-- initialize jQuery Library -->
@@ -341,7 +343,6 @@
 <script src="plugins/google-map/gmap.js"></script>
 <!-- main js -->
 <script src="js/custom.js"></script>
-
 
 <script>
     $("#submit_contact").click(function(){
@@ -362,7 +363,14 @@
             $("#comment").val("");
             // console.log(response);
             
-            window.alert("your comment has been published");
+                Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your comment  has been saved",
+                showConfirmButton: false,
+                timer: 1500
+                });
+
             window.location.reload();
         },
         error: function(xhr, status, error) {

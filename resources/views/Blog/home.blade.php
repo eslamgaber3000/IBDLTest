@@ -188,7 +188,7 @@
 								</a>
 								<span
 									class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1"> {{ $article->auther->name }}</span>
-								<h3 class="post-title mt-1"><a href="blog-single.html">{{ $article->title }}</a></h3>
+								<h3 class="post-title mt-1"><a  href="{{ url("Articles/show/$article->id") }}">{{ $article->title }}</a></h3>
 								
 
 								<span class="text-muted letter-spacing text-uppercase font-sm"> posted at {{  $article->created_at->format('y-m-d') }}</span>

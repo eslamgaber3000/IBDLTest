@@ -26,7 +26,20 @@ class AutherResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('email')
+
+                Forms\Components\TextInput::make('facebook')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('linkedin')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('instagram')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('x')
                     ->email()
                     ->required()
                     ->maxLength(255),
@@ -41,7 +54,10 @@ class AutherResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('linkedin'),
+                Tables\Columns\TextColumn::make('facebook'),
+                Tables\Columns\TextColumn::make('x'),
+                Tables\Columns\TextColumn::make('instagram'),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\Homepage;
 use App\Models\Like;
 use App\Models\review;
@@ -14,7 +15,8 @@ class ArticleController extends Controller
 {
     public function index()
     {
-      $articles=Article::paginate(8); 
+      $articles=Article::orderBy('id', 'DESC')->paginate(8); 
+    //   dd($articles);
       $homepage = Homepage::first();
       $reviews = review::where('approved',1)->get();
       // dd($reviews);
@@ -40,8 +42,16 @@ class ArticleController extends Controller
         $commentsNumber = $article->comments->count();
        
 
+        // dd($article->article_category_id);
+        $similartArticles = Article::where('article_category_id', $article->article_category_id)
+        ->where('id', '!=', $article->id)
+        ->get();
+        // dd($similartArticles);
+        // $articleCategory=Article::all()->where('article_category_id','=',1);
+        // dd($articleCategory);
+        // $articlesOfCategory=Article::all()->where()
     
-        return view('Blog.show', compact('article','comments','user','commentsNumber'));
+        return view('Blog.show', compact('article','comments','user','commentsNumber','similartArticles'));
     }
 
 

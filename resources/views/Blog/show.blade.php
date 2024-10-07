@@ -19,9 +19,17 @@
 <link rel="stylesheet" href="{{asset('Blog')}}/owl-carousel/owl.theme.default.min.css">
 <link rel="stylesheet" href="{{asset('Blog')}}/magnific-popup/magnific-popup.css">
 <!-- manin stylesheet -->
-<link rel="stylesheet" href="{{ asset('Blog/css/Article.test.css') }}">
 <link rel="stylesheet" href="{{ asset('Blog') }}/css/style.css">
+
+<!-- style for article  -->
+
+<link rel="stylesheet" href="{{ asset('blog/css/Article_Content_Style.css') }}">
+
+<link rel="stylesheet" href="{{ asset('Blog/css/Article_Content_Style.css') }}">
+<!-- seewt alert cdn -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 @endsection
 
 
@@ -100,7 +108,7 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                 
-                                                            <a href=""> <i class="fa-brands fa-linkedin-in"></i></a>
+                                                            <a href="{{ $article->auther->linkedin }}"> <i class="fa-brands fa-linkedin-in"></i></a>
                                                         </div>
                                                         <div class="col-md-3">
                                                 
@@ -186,7 +194,7 @@
                     </div>
 
                     <div class="post-body">
-                        <div class="entry-content">
+                        <div class="rich-editor-content">
                           @php
                               echo $article->desc
                           @endphp
@@ -221,20 +229,26 @@
                         You May Also Like
                     </h3>
                     <div class="row">
+                    @if ($similartArticles)
+                        @foreach ($similartArticles as $similartArticle )
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="post-block-wrapper mb-4 mb-lg-0">
-                                <a href="blog-single.html">
-                                    <img class="img-fluid" src="{{asset("Blog/images/fashion/img-1.jpg")}}"
+                                <a href="{{ url("Articles/show/$similartArticle->id") }}">
+                                    <img class="img-fluid" src="{{asset("storage/$similartArticle->image")}}"
                                         alt="post-thumbnail" />
                                 </a>
                                 <div class="post-content mt-3">
                                     <h5>
-                                        <a href="blog-single.html">Intel’s new smart glasses actually look good</a>
+                                        <a href="{{ url("Articles/show/$similartArticle->id") }}">{{ $similartArticle->title }}</a>
                                     </h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+                        @endforeach
+                    @endif
+                        
+
+                        {{-- <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="post-block-wrapper mb-4 mb-lg-0">
                                 <a href="blog-single.html">
                                     <img class="img-fluid" src="{{ asset('Blog') }}/images/fashion/img-2.jpg"
@@ -259,7 +273,7 @@
                                     </h5>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

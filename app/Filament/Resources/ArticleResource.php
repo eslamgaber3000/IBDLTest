@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ArticleResource\Pages;
 use App\Filament\Resources\ArticleResource\RelationManagers;
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\Auther;
 use App\Models\User;
 use Filament\Forms;
@@ -42,11 +43,11 @@ class ArticleResource extends Resource
                     ->required()
                     ->maxLength(255)->columnSpanFull(),
 
-                
-
-                // Forms\Components\Textarea::make('desc2')
-                //     ->required()
-                //     ->maxLength(65535),
+                    Select::make('article_category_id')
+                    ->label('article category')
+                    ->options(ArticleCategory::all()->pluck('name', 'id'))
+                    ->searchable()->required()->columnSpanFull(),
+           
 
                     Forms\Components\FileUpload::make('image')->label("Image for post")
                     ->required()
@@ -60,13 +61,7 @@ class ArticleResource extends Resource
                     ->required()
                     ->maxLength(65535)->columnSpanFull()->label('Article body'),
 
-                    // Forms\Components\FileUpload::make('image')
-                    // ->required()
-                    // ->image()->directory('portfolio')->columnSpan('full'),
-
-                    // Forms\Components\FileUpload::make('img')
-                    // ->required()
-                    // ->image()->directory('pages')->columnspan('full'),
+   
             ]);
     }
 
@@ -74,12 +69,12 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id'),
+                Tables\Columns\TextColumn::make('article_category_id'),
                 Tables\Columns\TextColumn::make('auther_id'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('subtitle'),
                 Tables\Columns\TextColumn::make('desc'),
-                Tables\Columns\TextColumn::make('desc2'),
+
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ImageColumn::make('article_image'),
                 Tables\Columns\TextColumn::make('created_at')

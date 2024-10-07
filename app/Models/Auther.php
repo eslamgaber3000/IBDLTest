@@ -9,5 +9,5 @@ class Auther extends Model
 {
     use HasFactory;
 
-    protected $fillable =['name' ,'email','image'];
+    protected $fillable =['name' ,'image' ,'facebook' ,'linkedin' ,'instagram' ,'x'];
 }

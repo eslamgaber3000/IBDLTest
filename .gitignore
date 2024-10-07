@@ -21,3 +21,5 @@ yarn-error.log
 *.zip
 /storage/framework/cache
 /storage/framework/session
+/storage/logs/*
+/storage/framework/cache/data/*

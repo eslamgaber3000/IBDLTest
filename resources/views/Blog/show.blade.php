@@ -201,7 +201,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="share-buttons" style="display: none;">
+                                    <div id="share-buttons" >
                                         <span class="share-icon-span">
                                             {!! $shareComponent !!}
                                         </span>

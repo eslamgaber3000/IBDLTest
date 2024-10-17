@@ -202,7 +202,7 @@
                                         </div>
                                     </div>
                                     <div id="share-buttons" style="display: none;">
-                                        <span class="share-icon-span text-info" style="color:green;">
+                                        <span class="share-icon-span">
                                             {!! $shareComponent !!}
                                         </span>
                                     </div>

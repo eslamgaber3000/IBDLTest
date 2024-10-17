@@ -36,22 +36,26 @@ class ArticleController extends Controller
 
     public function show($id){
         $article = Article::find($id);
-        $user=$article->user;
-        // dd($article->user->avatar);
-        $comments = $article->comments;
-        $commentsNumber = $article->comments->count();
-       
-
         // dd($article->article_category_id);
         $similartArticles = Article::where('article_category_id', $article->article_category_id)
         ->where('id', '!=', $article->id)
-        ->get();
-        // dd($similartArticles);
-        // $articleCategory=Article::all()->where('article_category_id','=',1);
-        // dd($articleCategory);
-        // $articlesOfCategory=Article::all()->where()
+        ->skip(0)->take(3)->get();
+
+
+        $shareComponent = \Share::page(
+            url()->current()
+
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+        
+       
     
-        return view('Blog.show', compact('article','comments','user','commentsNumber','similartArticles'));
+        return view('Blog.show', compact('article','similartArticles','shareComponent'));
     }
 
 
@@ -117,24 +121,12 @@ class ArticleController extends Controller
 
 
 
-    // public function image()
-    // {
 
-    //     $articles=Article::all();
-    //     // dd($articles);
-    //     return view('Blog.testImage',compact('articles'));
-    // }
-    // public function storeImage(Request $request)
-    // {
 
-    //     $image=$request->input('image');
-
-    //     dd($image);
-
- 
-       
-    // }
-
+public function ShareWidget()
+{
+   
+}
 
 
     

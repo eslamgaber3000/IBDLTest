@@ -173,6 +173,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
         // Laravel\Socialite\SocialiteServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
 
     ])->toArray(),
@@ -192,7 +193,8 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         // 'Example' => App\Facades\Example::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
     ])->toArray(),
 
 ];

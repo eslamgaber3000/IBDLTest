@@ -27,21 +27,21 @@ class AutherResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('facebook')
-                    ->email()
-                    ->required()
+                Forms\Components\TextInput::make('facebook')->label('facebook (optional)')
+                    // ->email()
+                    // ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('linkedin')
-                    ->email()
-                    ->required()
+                Forms\Components\TextInput::make('linkedin')->label('linkedin (optional)')
+                    // ->email()
+                    // ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('instagram')
-                    ->email()
-                    ->required()
+                Forms\Components\TextInput::make('instagram')->label('instagram (optional)')
+                    // ->email()
+                    // ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('x')
-                    ->email()
-                    ->required()
+                Forms\Components\TextInput::make('x')->label('X (optional)')->columnSpanFull()
+                    // ->email()
+                    // ->required()
                     ->maxLength(255),
                     Forms\Components\FileUpload::make('image')
                     ->required()

@@ -15,13 +15,18 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title','desc','image','article_image','auther_id','subtitle','article_category_id'
+        'title','desc','image','article_image','auther_id','subtitle','article_category_id','metadata','article_audio','time_to_read'
     ];
 
 
     // public function user(){
     //     return $this->belongsTo(User::class,'user_id');
     // }
+
+
+    protected $casts = [
+        'metadata' => 'array',
+    ];
     public function comments(){
         return $this->hasMany(Comment::class,'article_id');
     }

@@ -14,42 +14,35 @@
     </script>
 
     <title>IBDL | IBDL Learning Group</title>
+
     <!-- META TAGS -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="IBDL | IBDL Learning Group">
-    <meta name="keyword" content="IBDL, IBDL Learning Group">
-
+    <meta name="description" content="{{ $article->metadata['description'] ?? 'IBDL | IBDL Learning Group' }}">
+    <meta name="keyword" content="{{ $article->metadata['keyword'] ?? 'IBDL | IBDL Learning Group' }}">
     <link rel="shortcut icon" href="{{ asset('site/images/fav.png') }}" type="image/x-icon">
     <link rel="image_src" href="{{ asset('site/images/fav.png') }}" />
+
+    <!-- Open Graph Meta Tags -->
     <meta property="og:site_name" content="IBDL">
-    <meta property="og:title" content="IBDL | IBDL Learning Group" />
-    <meta property="og:description" content="IBDL | IBDL Learning Group" />
-    <meta property="og:image" itemprop="image" content="{{ asset('site/images/fav.png') }}">
-    <meta property="og:type" content="IBDL | IBDL Learning Group" />
+    <meta property="og:title" content="{{ $article->metadata['og:title'] ?? 'IBDL | IBDL Learning Group' }}" />
+    <meta property="og:description" content="{{ $article->metadata['og:description'] ?? 'IBDL | IBDL Learning Group' }}" />
+    <meta property="og:image" content="{{ $article->metadata['og:image'] ?? asset('site/images/fav.png') }}">
+    <meta property="og:type" content="{{ $article->metadata['og:type'] ?? 'website' }}" />
+    <meta property="og:url" content="{{ $article->metadata['og:url'] ?? url()->current() }}">
     <meta property="og:updated_time" content="IBDL | IBDL Learning Group" />
     <meta name="msapplication-TileImage" content="{{ asset('site/images/fav.png') }}">
 
-    <meta property="og:image" content="{{ asset('site/images/fav.png') }}">
-    <meta property="og:type" content="website" />
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:url" content="http://www.ibdl.net">
-
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://ibdl.net/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="IBDL | IBDL Learning Group">
-    <meta property="og:description" content="IBDL | IBDL Learning Group">
-    <meta property="og:image" content="https://ibdl.net/site/images/fav.png">
-
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="ibdl.net">
-    <meta property="twitter:url" content="https://ibdl.net/">
-    <meta name="twitter:title" content="IBDL | IBDL Learning Group">
-    <meta name="twitter:description" content="IBDL | IBDL Learning Group">
-    <meta name="twitter:image" content="https://ibdl.net/site/images/fav.png">
+    <meta property="twitter:domain" content="{{ request()->getHost() }}">
+    <meta property="twitter:url" content="{{ $article->metadata['twitter:url'] ?? url()->current() }}">
+    <meta name="twitter:title" content="{{ $article->metadata['twitter:title'] ?? 'IBDL | IBDL Learning Group' }}">
+    <meta name="twitter:description"
+        content="{{ $article->metadata['twitter:description'] ?? 'IBDL | IBDL Learning Group' }}">
+    <meta name="twitter:image" content="{{ $article->metadata['twitter:image'] ?? asset('site/images/fav.png') }}">
+
 
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 

@@ -10,3 +10,81 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
+.rich-editor-content  p  {
+font-family: "Open Sans", sans-serif;
+ font-weight: 500;
+ font-size: 20 px;
+ color: black;
+
+
+}
+.rich-editor-content  strong{
+font-family: "Open Sans", sans-serif;
+ font-weight: 700;
+ font-size: 20 px;
+ color: black;
+
+
+}
+.auther-follow-word{
+    /* margin-bottom:10px ; */
+    
+    border-radius: 99em;
+    padding-top: 8px;padding-right: 16px;
+    padding-bottom: 8px;padding-left: 16px;
+     font-size: 14px ;font-weight: 400;
+     /* border-color:rgb(26, 137, 23); */
+     /* background:rgb(21, 109, 18) ; */
+     color:rgb(18, 17, 17)
+
+
+}
+
+/* i want article share part */
+#share-icon{
+
+    position: relative;
+}
+
+
+
+
+#share-buttons {
+    display: none; /* Start hidden */
+    position: absolute; /* Position it as needed */
+    background-color: white; /* Set background */
+    border: 1px solid #ccc; /* Optional border */
+    padding: 10px; /* Some padding */
+    z-index: 1000;
+    border-radius: 3px;
+    right: 300px;
+    margin-top: 10px;/* Bring it above other elements */
+    /* margin-top:50 ; */
+}
+
+#share-buttons ul li {
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    color: green ;
+}
+#share-buttons ul li a {
+
+    color: #1c1b39 ;
+}
+#share-buttons ul li a:hover{
+    
+    color: #ce8460;
+}
+#share-buttons a {
+    display: inline-block; /* Inline for horizontal display */
+    margin-right: 10px; /* Spacing between buttons */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+}
+.share-icon-span{
+
+    color : green;
+}
+    
+

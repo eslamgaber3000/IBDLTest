@@ -9,6 +9,7 @@ use App\Models\ArticleCategory;
 use App\Models\Auther;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -31,11 +32,13 @@ class ArticleResource extends Resource
 
         return $form
             ->schema([
+                Forms\Components\TextInput::make('time_to_read')->label('How much time this article take to read')
+                ->default(4)->numeric(),
                     Select::make('auther_id')
                     ->label('Author')
                     ->options(Auther::all()->pluck('name', 'id'))
                     ->searchable()->required()->columnSpanFull(),
-
+                    KeyValue::make('metadata')->columnSpanFull(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255)->columnSpanFull(),
@@ -52,6 +55,8 @@ class ArticleResource extends Resource
                     Forms\Components\FileUpload::make('image')->label("Image for post")
                     ->required()
                     ->image()->directory('BlogImages')->columnSpan('full'),
+
+                    Forms\Components\FileUpload::make('article_audio')->label("add audio to this article")->acceptedFileTypes(['audio/*'])->directory('articles audio')->columnSpanFull(),
 
                     Forms\Components\FileUpload::make('article_image')
                     ->required()
@@ -71,10 +76,11 @@ class ArticleResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('article_category_id'),
                 Tables\Columns\TextColumn::make('auther_id'),
+                Tables\Columns\TextColumn::make('time_to_read'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('subtitle'),
                 Tables\Columns\TextColumn::make('desc'),
-
+                Tables\Columns\TextColumn::make('article_audio'),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ImageColumn::make('article_image'),
                 Tables\Columns\TextColumn::make('created_at')

@@ -23,7 +23,8 @@
 
 <!-- style for article  -->
 
-<link rel="stylesheet" href="{{ asset('blog/css/Article_Content_Style.css') }}">
+{{--
+<link rel="stylesheet" href="{{ asset('blog/css/Article_Content_Style.css') }}"> --}}
 
 <link rel="stylesheet" href="{{ asset('Blog/css/Article_Content_Style.css') }}">
 <!-- seewt alert cdn -->
@@ -44,9 +45,6 @@
 <section class="single-block-wrapper section-padding">
     <div class="container d-flex justify-content-center">
         <div class="row  justify-content-center">
-
-
-
             <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
                 <div class="single-post">
                     <div class="post-header mb-5 text-center">
@@ -60,7 +58,6 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     @if (session()->has('error'))
-                                        
                                     <div class="alert alert-danger">
                                         <strong>Warning!</strong> This article has been removed from the system.
                                     </div>
@@ -78,114 +75,148 @@
                                         </p>
 
                                         <!-- Author Section -->
-                                        <div class="Ather_container d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="Ather_container d-flex justify-content-center align-items-center mt-3">
                                             <!-- Author Profile Picture -->
                                             <div class="Ather_profile me-3">
 
-                                               
-                                                <img src="{{asset('storage/'.$article->auther->image)}}" alt="Profile Picture"
-                                                    class="rounded-circle" style="width: 60px; height: 60px;">
+
+                                                <img src="{{asset('storage/'.$article->auther->image)}}"
+                                                    alt="Profile Picture" class="rounded-circle"
+                                                    style="width: 60px; height: 60px;">
                                             </div>
 
                                             <!-- Author Information -->
                                             <div class="Ather_content text-start">
-                                                <h2>{{ $article->auther->name }}, LCSW</h2>
+                                                <h3>{{ $article->auther->name }}</h3>
                                                 <div class="metadata">
                                                     <span>Published in <strong>IBDL Learning Group</strong></span>
-                                                    <span>• 4 min read • Aug 30, 2024</span>
+                                                    <span>• {{ $article->time_to_read }} min read • {{
+                                                        \Carbon\Carbon::parse($article->auther->created_at)->format('M
+                                                        d, Y') }}</span>
                                                 </div>
                                             </div>
 
                                             <!-- Follow Button -->
                                             <div class="Ather_follow ms-3">
-                                                <div class="container">
+                                                @if ($article->auther->facebook || $article->auther->x ||
+                                                $article->auther->instagram|| $article->auther->linkedin)
+                                                <button disabled class="auther-follow-word"
+                                                    style="disabled">Follow</button>
+                                                @endif
+
+                                                <div class="container mt-1">
                                                     <div class="row">
+                                                        @if ($article->auther->facebook)
                                                         <div class="col-md-3">
-                                                
-                                                            <a href="">
+
+                                                            <a href="{{$article->auther->facebook }}">
                                                                 <i class="fa-brands fa-facebook"></i>
                                                             </a>
                                                         </div>
+                                                        @endif
+                                                        @if ($article->auther->linkedin)
                                                         <div class="col-md-3">
-                                                
-                                                            <a href="{{ $article->auther->linkedin }}"> <i class="fa-brands fa-linkedin-in"></i></a>
+
+                                                            <a href="{{ $article->auther->linkedin }}"> <i
+                                                                    class="fa-brands fa-linkedin-in"></i></a>
                                                         </div>
+                                                        @endif
+
+                                                        @if ($article->auther->instagram)
                                                         <div class="col-md-3">
-                                                
-                                                            <a href="">
+
+                                                            <a href="{{$article->auther->instagram }}">
                                                                 <i class="fab fa-instagram"></i>
                                                             </a>
                                                         </div>
+                                                        @endif
+
+                                                        @if ($article->auther->x)
                                                         <div class="col-md-3">
-                                                
-                                                            <a href=""> <i class="fa-solid fa-x"></i></a>
+
+                                                            <a href="{{ $article->auther->x }}"> <i
+                                                                    class="fa-solid fa-x"></i></a>
                                                         </div>
-                                                
+                                                        @endif
+
+
                                                     </div>
                                                 </div>
-                                                <span  class="">Follow</span>
+                                                {{-- <span class="">Follow</span> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <div class="container">
+                                <div class="container ">
                                     <div
                                         class="post-actions d-flex justify-content-between align-items-center border-top border-bottom py-3">
                                         <!-- Left Section (Reactions) -->
                                         <div class="left-section d-flex align-items-center">
                                             <!-- Clap Icon and Count -->
-                                           
+
                                             <form action="{{url( 'Article/like/create') }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="article_id" id="article_id" value="{{ $article->id }}">
-                                                {{-- <input type="hidden" name="user_id" id="user_id" value="{{ $article->user->id }}"> --}}
+                                                <input type="hidden" name="article_id" id="article_id"
+                                                    value="{{ $article->id }}">
+                                                {{-- <input type="hidden" name="user_id" id="user_id"
+                                                    value="{{ $article->user->id }}"> --}}
                                                 <span class="reaction-icon me-2">
-                                                    <button type="button" id="like-button" style="border: none ; background:none ; padding:none ;"> <i class="fa-solid fa-thumbs-up "></i> </button> 
+                                                    <button type="button" id="like-button"
+                                                        style="border: none ; background:none ; padding:none ;"> <i
+                                                            class="fa-solid fa-thumbs-up "></i> </button>
                                                 </span>
-                                                <span class="reaction-count me-4 " id="like_count">{{ $article->likes->count() }}</span>
+                                                <span class="reaction-count me-4 " id="like_count">{{
+                                                    $article->likes->count() }}</span>
                                             </form>
-
                                             <!-- Comment Icon and Count -->
                                             <span class="comment-icon me-2">
                                                 <i class="fas fa-comment-dots"></i>
                                             </span>
-                                            <span class="comment-count">{{  $article->comments->count() }}</span>
+                                            <span class="comment-count">{{ $article->comments->count() }}</span>
                                         </div>
-
                                         <!-- Right Section (Actions) -->
                                         <div class="right-section d-flex align-items-center">
-                                            <!-- Bookmark Button -->
-                                            {{-- <a href="">
 
-                                                <span class="me-3">
-                                                    <i class="fas fa-bookmark"></i>
-                                                </span>
-                                            </a> --}}
-                                            {{-- <a href="">
-                                                <span class="me-3">
-                                                    <i class="fas fa-play-circle"></i>
-                                                </span>
-                                            </a> --}}
+                                            <div style="position: relative;">
 
-                                            <a href="">
-                                                <span class="me-3">
-                                                    <i class="fa-solid fa-share-nodes"></i>
-                                                </span>
-                                            </a>
+                                                @if ($article->article_audio)
+                                                <a href="javascript:void(0);" id="play-audio">
+                                                    <span class="me-3">
+                                                        <i class="fas fa-play-circle"></i>
+                                                    </span>
+                                                </a>
+                                                @endif
 
-                                            {{-- <a href="">
-                                                <span>
-                                                    <i class="fas fa-ellipsis-h"></i>
-                                                </span>
-                                            </a> --}}
-
+                                                <audio controls style="display: none;" id="audio-player">
+                                                    <source src="{{ Storage::url( $article->article_audio) }}"
+                                                        type="audio/mpeg">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                                <a href="#" id="share-icon" >
+                                                    <span class="me-3">
+                                                        <i class="fa-solid fa-share-nodes"></i>
+                                                    </span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div id="share-buttons" style="display: none;">
+                                        <span class="share-icon-span text-info" style="color:green;">
+                                            {!! $shareComponent !!}
+                                        </span>
+                                    </div>
+                                    
+
                                 </div>
                             </div>
+
                         </div>
+
+
+
+
+
 
                         <div class="post-featured-image mt-5">
                             <img src="{{ asset("storage/$article->article_image") }}" class="img-fluid w-100"
@@ -195,90 +226,45 @@
 
                     <div class="post-body">
                         <div class="rich-editor-content">
-                          @php
-                              echo $article->desc
-                          @endphp
-                            
-                            
+                            @php
+                            echo $article->desc
+                            @endphp
 
-                           
-                            {{-- <h3 class="mt-5 mb-3">The Power of Thought</h3>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum delectus
-                                exercitationem
-                                natus quidem enim error suscipit. Iure cupiditate nobis quaerat consectetur! Vero
-                                aliquam,
-                                amet ipsum ullam reiciendis nostrum voluptate accusantium provident ut blanditiis
-                                incidunt. </p>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab ratione animi
-                                nobis in et consequatur
-                                earum modi repellendus, qui, non debitis pariatur tempora consequuntur!</p>
-                        </div> --}}
-
-                    
-
-
-                       
                     </div>
                 </div>
 
-              
+
                 <div class="related-posts-block mt-5">
                     <h3 class="news-title mb-4 text-center">
                         You May Also Like
                     </h3>
                     <div class="row">
-                    @if ($similartArticles)
+                        @if ($similartArticles)
                         @foreach ($similartArticles as $similartArticle )
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="post-block-wrapper mb-4 mb-lg-0">
                                 <a href="{{ url("Articles/show/$similartArticle->id") }}">
                                     <img class="img-fluid" src="{{asset("storage/$similartArticle->image")}}"
-                                        alt="post-thumbnail" />
+                                    alt="post-thumbnail" />
                                 </a>
                                 <div class="post-content mt-3">
                                     <h5>
-                                        <a href="{{ url("Articles/show/$similartArticle->id") }}">{{ $similartArticle->title }}</a>
+                                        <a href="{{ url("Articles/show/$similartArticle->id") }}">{{
+                                            $similartArticle->title }}</a>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                    @endif
-                        
+                        @endif
 
-                        {{-- <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="post-block-wrapper mb-4 mb-lg-0">
-                                <a href="blog-single.html">
-                                    <img class="img-fluid" src="{{ asset('Blog') }}/images/fashion/img-2.jpg"
-                                        alt="post-thumbnail" />
-                                </a>
-                                <div class="post-content mt-3">
-                                    <h5>
-                                        <a href="blog-single.html">Free Two-Hour Delivery From Whole Foods</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="post-block-wrapper">
-                                <a href="blog-single.html">
-                                    <img class="img-fluid" src="{{ asset('Blog') }}/images/fashion/img-3.jpg"
-                                        alt="post-thumbnail" />
-                                </a>
-                                <div class="post-content mt-3">
-                                    <h5>
-                                        <a href="blog-single.html">Snow and Freezing Rain in Paris Forces the</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div> --}}
+
+
                     </div>
                 </div>
 
                 <div class="comment-area my-5">
-                    {{-- <h3 class="mb-4 text-center">{{ $article->comments->count() }} comments </h3> --}}
+                  
 
                     @if ( $article->comments)
                     @foreach ( $article->comments as $comment )
@@ -286,7 +272,7 @@
 
                     <div class="comment-area-box media">
                         <img alt="" src="{{ asset('storage/avatars/'.$comment->user->avatar) }}"
-                            class="img-fluid float-left mr-3 mt-2">
+                            class="img-fluid float-left" width="50px" height="50px">
 
                         <div class="media-body ml-4">
                             <h4 class="mb-0">{{ $comment->user->name }} </h4>
@@ -294,9 +280,9 @@
                                 $comment->created_at->format('Y-m-d') }} </span>
 
                             <div class="comment-content mt-3">
-                                <p>{{ $comment->comment}}</p>
+                                <p style="color: black">{{ $comment->comment}}</p>
                             </div>
-                          
+
                         </div>
                     </div>
                     @endforeach
@@ -304,7 +290,7 @@
 
 
 
-                 
+
                 </div>
 
                 @auth
@@ -319,7 +305,7 @@
                             <textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="5"
                                 placeholder="Comment"></textarea>
                         </div>
-                      
+
                     </div>
 
                     <input class="btn btn-primary" type="button" name="submit-contact" id="submit_contact"
@@ -331,7 +317,7 @@
 
 
 
-          
+
         </div>
     </div>
 </section>
@@ -423,23 +409,36 @@ $('#like-button').on('click', function() {
         }
     });
 
-
-
-    // $.ajax({
-    //     url: '/post/' + articleId + '/like',
-    //     method: 'POST',
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     },
-    //     success: function(response) {
-    //         if (response.status === 'liked') {
-    //             alert('Post liked!');
-    //         } else {
-    //             alert('Post unliked!');
-    //         }
-    //     }
-    // });
 });
 
+</script>
+{{-- use icon for play audio instead of audio tag --}}
+<script>
+    var playButton = document.getElementById('play-audio');
+var audioPlayer = document.getElementById('audio-player');
+var icon = playButton.querySelector('i');
+
+// console.log(audioPlayer);
+playButton.addEventListener('click', function() {
+
+if (audioPlayer.paused) {
+    audioPlayer.play();
+    icon.classList.remove('fa-play-circle');
+    icon.classList.add('fa-pause-circle');
+}else{
+    audioPlayer.pause();
+    icon.classList.remove('fa-pause-circle');
+    icon.classList.add('fa-play-circle');
+}
+})
+</script>
+
+
+<script>
+    document.getElementById('share-icon').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        var shareButtons = document.getElementById('share-buttons');
+        shareButtons.style.display = shareButtons.style.display === 'none' ? 'block' : 'none';
+    });
 </script>
 @endsection

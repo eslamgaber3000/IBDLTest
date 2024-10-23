@@ -175,6 +175,29 @@
 
 
 	<section class="section-padding">
+
+
+		{{-- start search part  --}}
+		<div class="container mb-5">
+
+            <div class="row height d-flex justify-content-center align-items-center">
+
+              <div class="col-md-6">
+				<form action="{{ url('/Article/index') }}" method="get">
+					<div class="form">
+						<input type="text" name="search_key"  value="{{ request()->input('search_key') }}" class="form-control form-input" placeholder="Search anything...">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					  {{-- <span class="left-pan"><i class="fa fa-microphone"></i></span> --}}
+					</div>
+				</form>
+                
+              </div>
+              
+            </div>
+          </div>
+
+
+		{{--  end of search part  --}}
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

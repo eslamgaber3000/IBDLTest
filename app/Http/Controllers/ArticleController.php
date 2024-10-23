@@ -13,23 +13,32 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-      $articles=Article::orderBy('id', 'DESC')->paginate(8); 
-    //   dd($articles);
-      $homepage = Homepage::first();
-      $reviews = review::where('approved',1)->get();
-      // dd($reviews);
-      $rates = 0;
-      foreach($reviews as $review){
-      $rates += $review->rate ;
-      }
-      $all_rate = ($rates / count($reviews)) ;
-      $all_rate = round($all_rate,1);
-      $star_rating = ($all_rate / 5) * 100;
-      $reviews_count = count($reviews);
 
-        return view('Blog.home', compact('articles','homepage','all_rate','star_rating','reviews_count'));
+    $searchKey = $request->input('search_key');
+
+    if ($searchKey) {
+    $articles = Article::where('title', 'LIKE', '%' . $searchKey . '%')
+    ->orWhere('desc', 'LIKE', '%' . $searchKey . '%')
+    ->paginate(8);
+    }else {
+    $articles=Article::orderBy('id', 'DESC')->paginate(8);
+    }
+    $homepage = Homepage::first();
+    $reviews = review::where('approved',1)->get();
+    // dd($reviews);
+    $rates = 0;
+    foreach($reviews as $review){
+    $rates += $review->rate ;
+    }
+    $all_rate = ($rates / count($reviews)) ;
+    $all_rate = round($all_rate,1);
+    $star_rating = ($all_rate / 5) * 100;
+    $reviews_count = count($reviews);
+
+
+    return view('Blog.home', compact('articles','homepage','all_rate','star_rating','reviews_count'));
     }
 
 
@@ -123,10 +132,49 @@ class ArticleController extends Controller
 
 
 
-public function ShareWidget()
-{
-   
-}
+// public function articleSearch(Request $request)
+// {
+//     // Fetch the search key from the request
+//     $searchKey = $request->input('search_key');
+
+//     // Ensure the search key is not empty
+//     if(!$searchKey) {
+//         // Handle empty search case (you can redirect or show an error message)
+//         return redirect()->back()->with('error', 'Search key is required');
+//     }
+
+//     // Query articles by title or description
+//     $articles = Article::where('title', 'LIKE', '%' . $searchKey . '%')
+//         ->orWhere('desc', 'LIKE', '%' . $searchKey . '%')
+//         ->paginate(8); // Apply pagination after the query
+
+//     // Fetch homepage data
+//     $homepage = Homepage::first();
+
+//     // Fetch approved reviews
+//     $reviews = Review::where('approved', 1)->get();
+
+//     // Calculate the average rating
+//     $rates = 0;
+//     $reviews_count = count($reviews);
+
+//     if ($reviews_count > 0) {
+//         foreach ($reviews as $review) {
+//             $rates += $review->rate;
+//         }
+//         $all_rate = round(($rates / $reviews_count), 1);
+//         $star_rating = ($all_rate / 5) * 100; // Calculate percentage for stars
+//     } else {
+//         // Default values when no reviews exist
+//         $all_rate = 0;
+//         $star_rating = 0;
+//     }
+
+//     // Return the view with the necessary data
+//     return view('Blog.home', compact('articles', 'homepage', 'all_rate', 'star_rating', 'reviews_count'));
+// }
+
+
 
 
     

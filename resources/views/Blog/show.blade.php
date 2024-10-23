@@ -37,10 +37,7 @@
 @section('websit_content')
 
 
-
 <!--search overlay end-->
-
-
 
 <section class="single-block-wrapper section-padding">
     <div class="container d-flex justify-content-center">
@@ -102,7 +99,7 @@
                                                 @if ($article->auther->facebook || $article->auther->x ||
                                                 $article->auther->instagram|| $article->auther->linkedin)
                                                 <button disabled class="auther-follow-word"
-                                                    style="disabled">Follow</button>
+                                                    style="">Follow</button>
                                                 @endif
 
                                                 <div class="container mt-1">
@@ -212,11 +209,6 @@
                             </div>
 
                         </div>
-
-
-
-
-
 
                         <div class="post-featured-image mt-5">
                             <img src="{{ asset("storage/$article->article_image") }}" class="img-fluid w-100"
@@ -439,6 +431,20 @@ if (audioPlayer.paused) {
         event.preventDefault(); // Prevent the default link behavior
         var shareButtons = document.getElementById('share-buttons');
         shareButtons.style.display = shareButtons.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let twitterIcon = document.querySelector('.fab.fa-twitter');
+        
+        if (twitterIcon) {
+            // Replace 'fab fa-twitter' with 'fas fa-times' for the X icon
+            twitterIcon.classList.remove('fa-twitter');
+            twitterIcon.classList.remove('fab'); // Remove 'fab' because 'fas' is used for solid icons
+            twitterIcon.classList.add('fa-times');
+            twitterIcon.classList.add('fas');  // Add the 'fas' for solid icons
+        }
     });
 </script>
 @endsection

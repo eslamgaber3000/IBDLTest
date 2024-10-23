@@ -38,7 +38,8 @@ class ArticleResource extends Resource
                     ->label('Author')
                     ->options(Auther::all()->pluck('name', 'id'))
                     ->searchable()->required()->columnSpanFull(),
-                    KeyValue::make('metadata')->columnSpanFull(),
+                    KeyValue::make('metadata')->columnSpanFull()
+                    ->default(['description'=> "",'keyword'=>""])->keyLabel('Property name')->valueLabel('Property value'),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255)->columnSpanFull(),
@@ -47,7 +48,7 @@ class ArticleResource extends Resource
                     ->maxLength(255)->columnSpanFull(),
 
                     Select::make('article_category_id')
-                    ->label('article category')
+                    ->label('Article category')
                     ->options(ArticleCategory::all()->pluck('name', 'id'))
                     ->searchable()->required()->columnSpanFull(),
            
@@ -56,11 +57,16 @@ class ArticleResource extends Resource
                     ->required()
                     ->image()->directory('BlogImages')->columnSpan('full'),
 
-                    Forms\Components\FileUpload::make('article_audio')->label("add audio to this article")->acceptedFileTypes(['audio/*'])->directory('articles audio')->columnSpanFull(),
 
                     Forms\Components\FileUpload::make('article_image')
                     ->required()
                     ->image()->directory('article_images')->columnSpan('full'),
+
+                    Forms\Components\FileUpload::make('article_audio')
+                    ->label("add audio to this article (Optional)")->acceptedFileTypes(['audio/*'])
+                    ->directory('articles audio')->columnSpanFull(),
+
+                    
                     
                     FORMS\Components\RichEditor::make('desc')
                     ->required()

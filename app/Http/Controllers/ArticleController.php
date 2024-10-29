@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\Auther;
 use App\Models\Homepage;
 use App\Models\Like;
 use App\Models\review;
@@ -16,14 +17,26 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
 
+
     $searchKey = $request->input('search_key');
+
+    $categories=ArticleCategory::all();
+    $authers=Auther::all();
+
+    // dd($categories,$authers);   
+    $start_date=$request->input('start_date');
+    $end_date=$request->input('end_date');
+    $filter_author=$request->input('filter_author');
+    $filter_category=$request->input('filter_category');
+
+   //filter part
 
     if ($searchKey) {
     $articles = Article::where('title', 'LIKE', '%' . $searchKey . '%')
     ->orWhere('desc', 'LIKE', '%' . $searchKey . '%')
-    ->paginate(8);
+    ->paginate(6);
     }else {
-    $articles=Article::orderBy('id', 'DESC')->paginate(8);
+    $articles=Article::orderBy('id', 'DESC')->paginate(6);
     }
     $homepage = Homepage::first();
     $reviews = review::where('approved',1)->get();
@@ -38,7 +51,9 @@ class ArticleController extends Controller
     $reviews_count = count($reviews);
 
 
-    return view('Blog.home', compact('articles','homepage','all_rate','star_rating','reviews_count'));
+    
+
+    return view('Blog.home', compact('articles','homepage','all_rate','star_rating','reviews_count','categories','authers'));
     }
 
 
@@ -69,8 +84,62 @@ class ArticleController extends Controller
 
 
 
-    public function test (){
-        return view('Blog.test');
+    public function filterArticle (Request $request){
+
+        $homepage = Homepage::first();
+        $categories=ArticleCategory::all();
+        $authers=Auther::all();
+
+        $reviews = review::where('approved',1)->get();
+        // dd($reviews);
+        $rates = 0;
+        foreach($reviews as $review){
+        $rates += $review->rate ;
+        }
+        $all_rate = ($rates / count($reviews)) ;
+        $all_rate = round($all_rate,1);
+        $star_rating = ($all_rate / 5) * 100;
+        $reviews_count = count($reviews);
+        
+        $start_date=$request->input('start_date');
+        $end_date=$request->input('end_date');
+        $article_category_id=$request->input('filter_category');
+        $article_auther_id=$request->input('filter_auther');
+
+        $query=Article::query();
+
+        // Apply filter by start date
+    if ($start_date) {
+        $query->whereDate('created_at', '>=', $start_date);
+    }
+
+    // Apply filter by end date
+    if ($end_date) {
+        $query->whereDate('created_at', '<=', $end_date);
+    }
+
+    if ($article_category_id) {
+        $query->where('article_category_id', $article_category_id);
+    }
+    if ($article_auther_id) {
+        $query->where('auther_id', $article_auther_id);
+    }
+
+        // Get the filtered results
+        $articles = $query->paginate(6) ;
+
+        // dd($articles);  
+       
+        // $articles=Article::whereBetween('created_at', [$start_date, $end_date])->all();
+        // dd($articles);
+        // // ->where('article_category_id', $article_category_id)
+        // // ->where('auther_id', $article_auther_id) 
+        // // ->paginate(6);
+
+
+        
+
+        return view('Blog.home', compact('articles','homepage','all_rate','star_rating','reviews_count','categories','authers'));
 
     }
 

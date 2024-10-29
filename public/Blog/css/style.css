@@ -1624,3 +1624,42 @@ footer
   box-shadow: none;
   border:none;
 }
+/* filter part   */
+
+.collapse{
+  display: none;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.collapse.show{
+  display: block;
+}
+/* message in caser there are no article   */
+
+
+.alert {
+  border-radius: 10px; /* Slightly round corners */
+  padding: 15px; /* Adequate padding */
+  background-color: #fff3cd; /* A softer yellow background */
+  border: 1px solid #ffeeba; /* Border color matching the alert */
+}
+
+.text-danger {
+  font-weight: bold; /* Ensure the warning message is bold */
+}
+
+.text-primary {
+  text-decoration: none; /* Remove underline from link */
+}
+
+
+.zabollll{
+  color: green;
+
+
+}
+.text-primary:hover{
+  color: green; /* Darker color on hover */
+  text-decoration: underline; /* Add underline on hover for better visibility */
+}

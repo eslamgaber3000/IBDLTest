@@ -188,7 +188,7 @@ Route::get('articleTest',[ArticleController::class, 'test']);
 Route::post('Article/like/create',[ArticleController::class, 'storeLike'])->middleware('auth');
 
 
-// Route::get('/article/search',[ArticleController::class, 'articleSearch']);
+Route::get('/article/filter',[ArticleController::class, 'filterArticle']);
 
 
 

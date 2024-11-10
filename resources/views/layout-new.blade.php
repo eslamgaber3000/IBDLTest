@@ -286,12 +286,25 @@
                                                         <button type="submit" class="btn btn-warning button m-auto">Sign in
                                                             </button>
                                                     </div>
-                                                    <div class="d-flex mt-4 justify-content-center">
-                                                        <p style="color:gray" class="mb-0 me-1">New Here?</p>
-                                                        <a style="color:white" href="{{ route('register') }}">
-                                                            Sign Up
+                                                    <div class="mt-4">
+                                                        <div class="d-flex justify-content-center">
+
+                                                            <p style="color:gray" class="mb-0 me-1">New Here?</p>
+                                                            <a style="color:white" href="{{ route('register') }}">
+                                                                Sign Up
+                                                                
+                                                            </a>
                                                             
-                                                        </a>
+                                                        </div>
+                                                        <div  class="d-flex mt- justify-content-center" >
+
+                                                            <p style="color:gray" class="mb-0 me-1">forget password ?</p>
+                                                            <a style="color:white" href="{{ url('forgot-password') }}">
+                                                                forget password
+                                                                
+                                                            </a>
+                                                            
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>

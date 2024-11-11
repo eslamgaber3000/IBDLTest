@@ -40,7 +40,7 @@ class ProviderResource extends Resource
                     ->maxLength(200),
                 Forms\Components\TextInput::make('address')
                     ->maxLength(300),
-                Forms\Components\FileUpload::make('img')
+                Forms\Components\FileUpload::make('img')->directory('providers')
                     ->image(),
                 Forms\Components\TextInput::make('country_id'),
                 Forms\Components\TextInput::make('city')

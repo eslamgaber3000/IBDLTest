@@ -49,7 +49,8 @@
                             <div class="card coll-card mb-5">
                                 <div class="row g-0">
                                     <div style="text-align: center;" class="col-md-4">
-                                        <img src="../../images/{{$provider->img}}"
+                                   {{-- {{ dd($provider->img) }} --}}
+                                        <img src="{{ asset("storage/$provider->img") }}"
                                             class="img-fluid rounded-start coll-card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">

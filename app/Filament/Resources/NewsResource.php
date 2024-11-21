@@ -6,6 +6,7 @@ use App\Filament\Resources\NewsResource\Pages;
 use App\Filament\Resources\NewsResource\RelationManagers;
 use App\Models\news;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -29,7 +30,7 @@ class NewsResource extends Resource
                     ->maxLength(200)->columnSpan('full'),
                 Forms\Components\TextInput::make('slug')
                     ->maxLength(300)->hidden(),
-                TinyEditor::make('content')
+                RichEditor::make('content')
                     ->required()
                     ->maxLength(65535)->columnSpan('full'),
                 Forms\Components\FileUpload::make('img')

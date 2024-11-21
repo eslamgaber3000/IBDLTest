@@ -213,7 +213,7 @@
                                         </a>
                                     </li>
                                     @auth
-                                    @if (auth()->check() && auth()->user()->role == '1')
+                                    @if (auth()->check() && auth()->user()->role == '1' or auth()->user()->role == '2' or auth()->user()->role== '3')
                                         
                                     <li>
                                          <a style="color: white;

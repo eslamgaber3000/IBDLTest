@@ -65,9 +65,10 @@ class ContactMessageResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
-    
+
     public static function getRelations(): array
     {
         return [
@@ -76,7 +77,7 @@ class ContactMessageResource extends Resource
     }
     public static function canCreate(): bool
     {
-       return false;
+        return false;
     }
     public static function getPages(): array
     {
@@ -85,5 +86,5 @@ class ContactMessageResource extends Resource
             'create' => Pages\CreateContactMessage::route('/create'),
             'edit' => Pages\EditContactMessage::route('/{record}/edit'),
         ];
-    }    
+    }
 }

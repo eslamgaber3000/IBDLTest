@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 // use Modules\Blog\App\Http\Controllers\CommentController;
 
@@ -22,5 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('Article/like/create',[ArticleController::class, 'storeLike']);
-
+Route::post('Article/like/create', [ArticleController::class, 'storeLike']);

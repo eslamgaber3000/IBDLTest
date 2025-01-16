@@ -60,7 +60,7 @@
                             @if ($overallStatus == 'Pass')
 
                             <a class="btn btn-success button" style="font-size: 15px;"
-                                href="{{url('storage/cert/' . $one_exam->logbook . '.jpg') }}" target="_blank"
+                                href="{{url('storage/cert/'. $one_exam->logbook .'.jpg') }}" target="_blank"
                                 download>Download certificate</a>
                             @endif
                         </div>

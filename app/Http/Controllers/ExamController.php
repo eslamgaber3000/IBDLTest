@@ -271,7 +271,7 @@ class ExamController extends Controller
             return view('pages/404');
         } 
                elseif ($one_exam->logbook >= "IBDLCIE2410008" && $one_exam->logbook <= "IBDLCIE2410028"  &&   $one_exam->logbook != "IBDLCIE2410022"   ) {
-            $img = Image::make(public_path('images/old cie template.JPG'));
+                     $img = Image::make(public_path('images/old_cie_template.JPG'));
                
                  $length = strlen($one_exam->name);
                     //  dd($length);

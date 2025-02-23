@@ -28,8 +28,15 @@ $page->breadcrumb,'header'=>$page->header,'icon'=>$page->icon])
                             <p class="mb-1"> <b> Download Flyers</b></p>
                             @endif
                             @if(isset($page->ar_flyer))
-                            <a target="_blank" href="{{ route('getFile',$page->ar_flyer)}}"> <img
-                                    src="../../images/icon1.png" width="30px" height="auto" alt=""> </a>
+                            <a target="_blank" href="{{ route('getFile',$page->ar_flyer)}}"> 
+                                @if ($page->slug=="CNPO-Practitioner" || $page->slug == "CNPO-Professional")
+                                    
+                                <img src="{{ asset('images/icon/saudi-arabia-flag-icon.svg') }}" width="40" height="29" alt="Saudi Arabia Flag">
+                                @else
+
+                                <img src="../../images/icon1.png" width="30px" height="auto" alt=""> </a>
+                                @endif
+
                             @endif
                             @if(isset($page->en_flyer))
                             <a target="_blank" href="{{ route('getFile',$page->en_flyer)}}"> <img

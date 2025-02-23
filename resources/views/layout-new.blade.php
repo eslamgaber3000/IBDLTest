@@ -465,6 +465,8 @@
                                                         Industrial Engineer </a>
                                                     <a class="dropdown-item" href="{{url('qualifications/CNPO-Practitioner')}}">
                                                         CNPO Practitioner </a>
+                                                    <a class="dropdown-item" href="{{url('qualifications/CNPO-Professional')}}">
+                                                        CNPO Professional </a>
                                                     {{-- <a class="dropdown-item" href="{{url('qualifications/CNPO-Professional')}}">
                                                         CNPO Professional </a> --}}
                                                     <!--<a class="dropdown-item" href="{{url('qualifications/colp')}}">-->

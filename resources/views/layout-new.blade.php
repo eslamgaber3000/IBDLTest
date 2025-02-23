@@ -463,6 +463,10 @@
                                                     <a class="dropdown-item" href="{{url('qualifications/cie')}}">
                                                         Certified
                                                         Industrial Engineer </a>
+                                                    <a class="dropdown-item" href="{{url('qualifications/CNPO-Practitioner')}}">
+                                                        CNPO Practitioner </a>
+                                                    {{-- <a class="dropdown-item" href="{{url('qualifications/CNPO-Professional')}}">
+                                                        CNPO Professional </a> --}}
                                                     <!--<a class="dropdown-item" href="{{url('qualifications/colp')}}">-->
                                                     <!--    Certified-->
                                                     <!--    Organizational Learning Professional </a>-->
@@ -1337,6 +1341,13 @@
                                             <li><a class="dropdown-item" href="{{url('qualifications/cie')}}"> Certified
                                                     Industrial
                                                     Engineer </a></li>
+                                            <li>
+                                            <li><a class="dropdown-item" href="{{url('qualifications/CNPO-Professional')}}"> 
+                                                CNPO Professional </a></li>
+                                            <li>
+                                            <li><a class="dropdown-item" href="{{url('qualifications/CNPO-Practitioner')}}"> 
+                                                CNPO Practitioner
+                                                     </a></li>
                                             <li>
                                                 <!--<a class="dropdown-item" href="{{url('qualifications/colp')}}"> Certified-->
                                                 <!--    Organizational Learning Professional </a>-->

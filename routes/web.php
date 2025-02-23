@@ -49,7 +49,6 @@ Route::get('assessments/{slug}', [PageController::class, 'assessments'])->name('
 Route::get('qualifications/{slug}', [PageController::class, 'qualifications'])->name('qualifications');
 Route::get('executive_education/{slug}', [PageController::class, 'executive_education'])->name('executive_education');
 
-
 Route::POST('become_acc', [AccredetationController::class, 'store'])->name('become_acc');
 Route::POST('corporate_acc', [AccredetationController::class, 'corporate_store'])->name('corporate_acc');
 Route::POST('become_acc_trainer', [AccredetationController::class, 'trainer_store'])->name('become_acc_trainer');

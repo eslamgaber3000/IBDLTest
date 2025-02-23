@@ -133,11 +133,12 @@ class PageController extends Controller
     }
 
     public function qualifications($slug){
-        
+     
         $page = qualification::where('slug',  $slug )->first();
+        // dd($page);
         $testimonial = testimonial::where('page',$slug)->get();
 
-
+        // dd($testimonial);
         return view('qualifications.index',compact(['page','testimonial']));
 
     }

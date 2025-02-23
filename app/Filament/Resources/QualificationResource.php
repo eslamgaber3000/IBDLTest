@@ -6,6 +6,7 @@ use App\Filament\Resources\QualificationResource\Pages;
 use App\Filament\Resources\QualificationResource\RelationManagers;
 use App\Models\qualification;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -26,7 +27,7 @@ class QualificationResource extends Resource
             ->schema([
                 Forms\Components\Textarea::make('slug')
                     ->required()
-                    ->maxLength(65535)->hidden(),
+                    ->maxLength(65535),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(65535),
@@ -44,9 +45,9 @@ class QualificationResource extends Resource
                     ->image()->directory('pages')->enableDownload(),
                 Forms\Components\FileUpload::make('certificate')
                     ->image()->directory('pages')->enableDownload(),
-                TinyEditor::make('paragraph_1')
+                    RichEditor::make('paragraph_1')
                     ->required(),
-                TinyEditor::make('paragraph_2'),
+                RichEditor::make('paragraph_2'),
               
                 Forms\Components\FileUpload::make('en_flyer')
                     ->enableDownload(),
@@ -97,7 +98,7 @@ class QualificationResource extends Resource
     }
     public static function canCreate(): bool
     {
-       return false;
+       return true;
     }
     public static function getPages(): array
     {

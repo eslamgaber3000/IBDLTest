@@ -6,6 +6,7 @@ use App\Filament\Resources\TestimonialResource\Pages;
 use App\Filament\Resources\TestimonialResource\RelationManagers;
 use App\Models\testimonial;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -27,7 +28,7 @@ class TestimonialResource extends Resource
                 Forms\Components\TextInput::make('page')
                     ->required()
                     ->maxLength(50),
-                TinyEditor::make('content')
+                RichEditor::make('content')
                     ->required()
                     ->maxLength(65535),
                 Forms\Components\TextInput::make('name')

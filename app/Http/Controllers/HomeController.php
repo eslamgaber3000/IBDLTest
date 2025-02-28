@@ -80,6 +80,12 @@ public function version (Request $request){
 
 }
 
+public function anniversaryShow(){
+
+
+    return view('annivirsary.index');
+}
+
 
 
 

@@ -43,6 +43,7 @@ require __DIR__ . '/auth.php';
 
 
 Route::get('/', [HomeController::class, 'index2'])->name('home_page');
+Route::get('20th-Anniversary' , [HomeController::class, 'anniversaryShow'])->name('anniversary_page');
 Route::get('pages/{slug}', [PageController::class, 'index'])->name('pages');
 Route::get('assessments/{slug}', [PageController::class, 'assessments'])->name('assessments');
 

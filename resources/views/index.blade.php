@@ -1,25 +1,41 @@
 @extends('layout-new')
 {{-- @inject('Text', 'App\Libs\text') --}}
 @section('websit_content')
-<!-- <div id="overlayer"></div><div class="page-loader"><div class="sk-cube-grid"><div class="sk-cube sk-cube1"></div><div class="sk-cube sk-cube2"></div><div class="sk-cube sk-cube3"></div><div class="sk-cube sk-cube4"></div><div class="sk-cube sk-cube5"></div><div class="sk-cube sk-cube6"></div><div class="sk-cube sk-cube7"></div><div class="sk-cube sk-cube8"></div><div class="sk-cube sk-cube9"></div></div></div> -->
-<!-- <div id="fullpage"></div> -->
 
-<section class="main-hero d-flex" style="background-color: white;">
+
+{{-- <section class="main-hero " style="background-color: #1d1d39;   background-image:url({{ asset('anniversary/assets/img/Farme.png') }}); background-size: 100% 100%; z-40">
     <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"
-        class="slide-caption col-10 col-lg-5 ms-5 text-start">
-        <div class="hero-logo">
-            {{-- <img src="{{ asset('site/images/white-logo.png') }}" class="img-fluid" alt="" /> --}}
-        </div>
+        class="slide-caption col-10 col-lg-5 ms-5 text-start" style="
 
-        <h1 class="hero-title m-0" style="font-size: 45px;color:white">
-            
-        </h1>
 
+    position: absolute;
+    color: #1d1a3d;
+    background: transparent;
+    bottom: 15em;
+    left: 70px;
+    width: 34%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-self: center;
+    z-index: 5;
+
+          ">
         @php
         echo $homepage->inspire
         @endphp
 
-        <div class="d-flex mt-4 justify-content-between align-items-center">
+        <div class="d-flex mt-4 justify-content-between align-items-center" >
             <div class="review">
                 <h5 class="fw-bold" style="color:white"> Trust Score </h5>
                 <div class="ratings mb-2">
@@ -33,25 +49,100 @@
                 </div>
             </div>
             <div class="button ms-auto">
-
-                @auth
-
-                @else
-                <a href="{{ route('register') }}"> <button class="btn btn-warning button fw-bold"> Sign Up</button> </a>
-                @endauth
+              
+                <a href="{{ route('anniversary_page') }}"> <button class="btn btn-warning button fw-bold"> 20 <sup>th</sup> Anniversary</button> </a>
+               
             </div>
         </div>
     </div>
-    {{-- <div class="col-6 main-hero-img"> --}}
+         <div>
+              <img data-aos="fade-up"  data-aos-duration="500" data-aos-delay="200" class="image2  d-none d-lg-block " 
+              style="           position: absolute;
+                                bottom: 25%;
+                                right: 75px;
+                                z-index: 3;
+                                height: auto;
+                                width: 520px;
+                                max-height: 100%;"                  
+            src="{{ asset('anniversary/assets/img/hero-img.png') }}" />
+        </div>
+</section> --}}
+
+{{-- rebuild header part  --}}
+
+<style>
 
 
-        <img class="image1" src="{{ asset('storage/head.png') }}" />
-        <img data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" class="image2 d-none d-lg-block"
-            src="{{ asset('images/header/Header-version-564.png') }}" />
-        {{-- <img class="image3" src="{{ asset('images/header/bar.svg') }}" /> --}}
-        {{--
-    </div> --}}
-</section>
+
+/* Hero */
+.hero {
+  width: 100%;
+  min-height: 85vh;
+  position: relative;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section {
+  color: #ffffff;
+  background-color:#1d1d39;
+  padding: 60px 0;
+  scroll-margin-top: 92px;
+  overflow: clip;
+}
+
+.hero-section p {
+  color: color-mix(in srgb, #ffffff, transparent 30%);
+  margin: 5px 0 30px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+</style>
+
+<section id="hero" class="hero hero-section dark-background" style="background-image:url({{ asset('anniversary/assets/img/Farme.png') }}); background-size: 100% 100%; ">
+
+    <div class="container">
+      <div class="row gy-4 justify-content-center justify-content-lg-between">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+            @php
+            echo $homepage->inspire
+            @endphp
+          <div class="d-flex mt-4 justify-content-between align-items-center" data-aos="fade-up"
+         >
+            <div class="review">
+                <h5 class="fw-bold" style="color:white"> Trust Score </h5>
+                <div class="ratings mb-2">
+                    <div class="empty-stars"></div>
+                    <div class="full-stars" style="width:{{$star_rating}}%"></div>
+                </div>
+                <b style="font-size: 1.5em;color:white" class="fw-bold mx-2">{{$all_rate}} </b>
+                <div class="mt-1 fw-bold">
+                    <a style="text-decoration: underline;color:white" href="{{url('pages/user_review')}}"> Read Our Dear
+                        Users Reviews </a>
+                </div>
+            </div>
+            <div class="button ms-auto">
+              
+                <a href="{{ route('anniversary_page') }}"> <button class="btn btn-warning button fw-bold"> 20 <sup>th</sup> Anniversary</button> </a>
+               
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="fade-up">
+          <img src="{{ asset('anniversary/assets/img/hero-img.png') }}" 
+          data-aos-duration="500" data-aos-delay="200"
+          class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
 
 <section class="brief-section ">
     <div class="d-flex row">

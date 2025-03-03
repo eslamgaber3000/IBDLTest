@@ -10,7 +10,7 @@
 
   <!-- Favicons -->
   <link href="{{ asset('anniversary/assets/img/favicon.png') }}" rel="icon">
-  <link href=" {{ asset('anniversary/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+   <link href=" {{ asset('anniversary/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -36,7 +36,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="{{ route('home_page') }}" class="logo d-flex align-items-center me-auto me-xl-0">
         <img src=" {{ asset('anniversary/assets/img/logo.png') }}" alt="">
       </a>
 
@@ -50,7 +50,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https:www.ibdl.net">Back to home page</a>
+      <a class="btn-getstarted" href="{{ route('home_page') }}">Back to home page</a>
 
     </div>
   </header>
@@ -75,7 +75,8 @@
         </div>
       </div>
 
-    </section><!-- /Hero Section -->
+    </section>
+    <!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -131,7 +132,7 @@
                 to innovation and growth.
               </p>
               <div class="text-center">
-                <a href="https:www.ibdl.net" target="_blank" class="more-btn"><span>Learn More on the website </span> <i class="bi bi-chevron-right"></i></a>
+                <a href="{{ route('home_page') }}" target="_blank" class="more-btn"><span>Learn More on the website </span> <i class="bi bi-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -291,7 +292,7 @@
           </div><!-- End Chef Team Member -->          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src=" {{ asset('anniversary/assets/img/chefs/3.jpg') }} " class="img-fluid" alt="">
+                <img src=" {{ asset('anniversary/assets/img/chefs/3.png') }} " class="img-fluid" alt="">
 
               </div>
               <div class="member-info">
@@ -616,12 +617,12 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('anniversary/') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="{{ asset('anniversary/') }}assets/vendor/php-email-form/validate.js"></script>
-  <script src="{{ asset('anniversary/') }}assets/vendor/aos/aos.js"></script>
-  <script src="{{ asset('anniversary/') }}assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="{{ asset('anniversary/') }}assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="{{ asset('anniversary/') }}assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ asset('/anniversary/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('/anniversary/assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset('anniversary/assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('anniversary/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('anniversary/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('anniversary/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Main JS File -->
   <script src="{{ asset('anniversary/assets/js/main.js') }}"></script>

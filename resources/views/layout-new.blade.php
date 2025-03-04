@@ -1185,7 +1185,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </a>
                 </div>
-                <div class="mob-logo">
+                <div class="mob-logo d-none">
                     <a class="" href="{{url('')}}">
                         <img src="{{ asset('site/images/logo.png') }}" alt="" />
                     </a>

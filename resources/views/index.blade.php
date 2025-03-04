@@ -121,16 +121,22 @@
                 <div class="mt-1 fw-bold">
                     <a style="text-decoration: underline;color:white" href="{{url('pages/user_review')}}"> Read Our Dear
                         Users Reviews </a>
+                        <div class="button mt-4">
+                
+                            <a href="{{ route('anniversary_page') }}"> <button class="btn btn-warning button fw-bold"> 20 <sup>th</sup> Anniversary</button> </a>
+                           
+                        </div>
                 </div>
             </div>
-            <div class="button ms-auto">
-              
+
+            {{-- <div class="button ms-auto">
+                
                 <a href="{{ route('anniversary_page') }}"> <button class="btn btn-warning button fw-bold"> 20 <sup>th</sup> Anniversary</button> </a>
                
-            </div>
+            </div> --}}
         </div>
         </div>
-        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="fade-up">
+        <div class=" d-lg-block col-lg-5 order-1 order-lg-2 hero-img" data-aos="fade-up">
           <img src="{{ asset('anniversary/assets/img/hero-img.png') }}" 
           data-aos-duration="500" data-aos-delay="200"
           class="img-fluid animated" alt="">

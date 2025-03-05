@@ -94,7 +94,7 @@
                                                             style="color: #ffffff;"></i>
                                                     </div>
                                                     <div class="coll-link-content">
-                                                        <a target="_blank" href=" {{$provider['website'] }}">
+                                                        <a target="_blank" href="https://{{$provider['website'] }}">
                                                             {{$provider['website'] }}</a>
                                                     </div>
                                                 </div>

@@ -94,7 +94,7 @@
 
 .hero-section p {
   color: color-mix(in srgb, #ffffff, transparent 30%);
-  margin: 5px 0 30px 0;
+  margin: 0;
   font-size: 20px;
   font-weight: 400;
 }
